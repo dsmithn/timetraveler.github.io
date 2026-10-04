@@ -117,10 +117,7 @@
     --mint-d:    #4aaa92;
     --signal:    #95B2DD;
     --ice:       #c8daf0;
-    --cream:     #f8f5f0;
     --warm:      #faf8f4;
-    --amber:     #e07b2a;
-    --amber-l:   #f5a050;
     --white:     #ffffff;
     --text-d:    #c5d8ed;
     --muted-d:   #4a6a8a;
@@ -245,7 +242,7 @@
     margin-bottom: 1.4rem;
   }
   h1.hero-title em { font-style: italic; font-weight: 300; color: var(--mid); }
-  h1.hero-title .warm { color: var(--amber-l); }
+  h1.hero-title .mint-word { color: var(--mint); }
   .hero-sub {
     font-size: 1rem; color: rgba(197,216,237,0.88);
     max-width: 420px; line-height: 1.82; margin-bottom: 2.5rem;
@@ -253,13 +250,13 @@
   .hero-actions { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 3rem; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 0.55rem;
-    background: var(--amber); color: var(--white);
+    background: var(--mint-d); color: var(--white);
     font-size: 0.88rem; font-weight: 600;
     text-decoration: none; padding: 0.9rem 1.8rem; border-radius: 5px;
-    box-shadow: 0 4px 20px rgba(224,123,42,0.4);
+    box-shadow: 0 4px 20px rgba(96,194,170,0.4);
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   }
-  .btn-primary:hover { background: var(--amber-l); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(224,123,42,0.55); }
+  .btn-primary:hover { background: var(--mint); transform: translateY(-2px); box-shadow: 0 6px 28px rgba(96,194,170,0.55); }
   .btn-ghost {
     font-family: 'Space Mono', monospace;
     font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
@@ -679,14 +676,15 @@
   option { background: var(--deep); color: var(--white); }
   .form-submit {
     display: inline-flex; align-items: center; gap: 0.6rem;
-    background: var(--amber); color: var(--white); border: none;
+    background: var(--mint-d); color: var(--white); border: none;
     font-size: 0.88rem; font-weight: 600;
     padding: 1rem 2rem; border-radius: 6px; cursor: pointer;
     align-self: flex-start;
-    box-shadow: 0 4px 16px rgba(224,123,42,0.4);
+    box-shadow: 0 4px 16px rgba(96,194,170,0.4);
     transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
   }
-  .form-submit:hover { background: var(--amber-l); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(224,123,42,0.5); }
+  .form-help { color: var(--silver); font-size: 0.9rem; line-height: 1.5; margin: 1rem 0; }
+  .form-submit:hover { background: var(--mint); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(96,194,170,0.5); }
 
   /* ── FOOTER ── */
   footer {
@@ -794,6 +792,7 @@
     <div class="nav-logo-text">
       Major Tom's Air
       <small>Palm Beach County HVAC</small>
+      <small style="font-size: 0.5rem; opacity: 0.75;">Lic. #CAC1818226</small>
     </div>
   </a>
   <ul class="nav-links">
@@ -802,6 +801,7 @@
     <li><a href="#maintenance">Maintenance</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="/register.html">Register</a></li>
   </ul>
   <a href="tel:5618603670" class="nav-cta">☎ (561) 860-3670</a>
 </nav>
@@ -825,9 +825,9 @@
   <div class="hero-copy">
     <div class="hero-badge"><span class="badge-dot"></span> Serving Palm Beach and Broward County · Licensed & Insured</div>
     <h1 class="hero-title">
-      Your AC guy.<br>
-      <em>The one you</em><br>
-      <span class="warm">trust.</span>
+      Your AC guys.<br>
+      <em>The ones you</em><br>
+      <span class="mint-word">trust.</span>
     </h1>
     <p class="hero-sub">Major Tom's Air Repair handles repairs, installations, and maintenance agreements for homes and businesses across South Florida. Honest people. Honest service.</p>
     <div class="hero-actions">
@@ -862,7 +862,6 @@
     <span class="ticker-item">Palm Beach County <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">Broward County <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">Licensed and Insured <span class="ticker-sep">✦</span></span>
-    <span class="ticker-item">100% 5-Star Reviews <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">Residential and Commercial <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">AC Repair <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">New System Installation <span class="ticker-sep">✦</span></span>
@@ -870,7 +869,6 @@
     <span class="ticker-item">Palm Beach County <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">Broward County <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">Licensed and Insured <span class="ticker-sep">✦</span></span>
-    <span class="ticker-item">100% 5-Star Reviews <span class="ticker-sep">✦</span></span>
     <span class="ticker-item">Residential and Commercial <span class="ticker-sep">✦</span></span>
   </div>
 </div>
@@ -890,14 +888,6 @@
     <div>
       <div class="badge-text-main">Licensed & Insured</div>
       <div class="badge-text-sub">State of Florida · CAC1818226</div>
-    </div>
-  </div>
-  <div class="trust-divider"></div>
-  <div class="trust-badge">
-    <div class="badge-icon">★</div>
-    <div>
-      <div class="badge-text-main">5-Star Rated</div>
-      <div class="badge-text-sub">100% Positive Reviews</div>
     </div>
   </div>
   <div class="trust-divider"></div>
@@ -959,9 +949,8 @@
         <cite>— Steven Swanson, Verified Customer</cite>
       </div>
       <div class="brands-row">
-        <span class="brands-label">Certified On</span>
+        <span class="brands-label">Experience With</span>
         <span class="brand-name">Carrier</span>
-		<span class="brand-name">Goodman</span>
         <span class="brand-name">Rheem</span>
         <span class="brand-name">Ruud</span>
         <span class="brand-name">Tempstar</span>
@@ -969,10 +958,10 @@
       </div>
     </div>
     <div class="stats-group reveal">
-      <div class="stat-card"><div class="stat-num">100<sup>%</sup></div><div class="stat-label">5-Star Reviews</div></div>
+	  <div class="stat-card"><div class="stat-num">All</div><div class="stat-label">Major Brands Serviced</div></div>
+      <div class="stat-card"><div class="stat-num">12<sup>+</sup></div><div class="stat-label">Years in Business</div></div>
       <div class="stat-card"><div class="stat-num">24<sup>hr</sup></div><div class="stat-label">Max Response Time</div></div>
       <div class="stat-card"><div class="stat-num">2<sup>hr</sup></div><div class="stat-label">Arrival Windows</div></div>
-      <div class="stat-card"><div class="stat-num">6</div><div class="stat-label">Major Brands Certified</div></div>
     </div>
   </div>
 </section>
@@ -1090,7 +1079,7 @@
         <div class="contact-row">
           <div class="contact-label">Office Hours</div>
           <div class="contact-val sm" style="cursor:default">Mon – Fri: 8 AM – 4:30 PM</div>
-          <div class="contact-sub">Saturday: 9 AM – 12 PM · All messages answered within 24 hours</div>
+          <div class="contact-sub">Saturday: 9 AM – 12 PM · Messages answered within 24 hours</div>
         </div>
         <div class="social-links">
           <a href="https://www.facebook.com/p/Major-Toms-Air-Repair-Llc-100057258589435/" target="_blank" rel="noopener" class="social-btn">📘 Facebook</a>
@@ -1099,19 +1088,14 @@
           <a href="https://x.com/majortomsair" target="_blank" rel="noopener" class="social-btn">𝕏 Twitter</a>
         </div>
         <div style="margin-top:1rem; padding-top:1rem; border-top: 1px solid rgba(255,255,255,0.07);">
-          <div class="contact-label">License</div>
-          <div style="font-family:'Space Mono',monospace; font-size:0.75rem; color:rgba(197,216,237,0.5); letter-spacing:0.08em;">CAC1818226</div>
+          <div class="contact-label">State of Florida</div>
+          <div style="font-family:'Space Mono',monospace; font-size:0.75rem; color:rgba(197,216,237,0.5); letter-spacing:0.08em;">Lic. #CAC1818226</div>
         </div>
       </div>
     </div>
     <div class="reveal">
       <div class="eyebrow">Send a Message</div>
-      <!-- Formspree: replace YOUR_FORM_ID below with the endpoint from https://formspree.io (free tier OK) -->
-      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="hidden" name="_subject" value="New inquiry from majortomsair.com">
-        <input type="hidden" name="_next" value="https://majortomsair.com/?sent=1">
-        <!-- honeypot: real users leave this blank -->
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <form id="contact-form" class="contact-form" action="mailto:office@majortomsair.com" method="GET">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="cf-first">First Name</label>
@@ -1142,9 +1126,12 @@
         </div>
         <div class="form-group">
           <label class="form-label" for="cf-message">Message</label>
-          <textarea id="cf-message" name="message" class="form-textarea" placeholder="Tell us what's going on with your system..." required></textarea>
+          <textarea id="cf-message" name="message" class="form-textarea" placeholder="Tell us what's going on with your system... We recommend calling if you need a faster appointment." required></textarea>
         </div>
-        <button type="submit" class="form-submit">Send Message →</button>
+        <button type="submit" class="form-submit">Open Email Draft →</button>
+        <p class="form-help">Requires an email app. Review the draft and send it to office@majortomsair.com. You can also copy your message into webmail or call (561) 860-3670.</p>
+        <button id="copy-message" type="button" class="form-submit">Show Message to Copy</button>
+        <textarea id="email-draft" class="form-textarea" aria-label="Email message to copy" readonly hidden></textarea>
       </form>
     </div>
   </div>
@@ -1226,14 +1213,33 @@ const obs = new IntersectionObserver(entries => {
 }, {threshold:0.1});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
-// Post-submit thank-you: if the Formspree redirect lands back here with ?sent=1, show a toast.
-if (new URLSearchParams(location.search).get('sent') === '1') {
-  const toast = document.createElement('div');
-  toast.textContent = '✓ Message sent. We will be in touch within 24 hours.';
-  toast.style.cssText = 'position:fixed;bottom:5.5rem;left:50%;transform:translateX(-50%);background:#60c2aa;color:#050c18;padding:0.9rem 1.4rem;border-radius:8px;font-family:Instrument Sans,sans-serif;font-weight:600;box-shadow:0 8px 32px rgba(0,0,0,0.35);z-index:10000';
-  document.body.appendChild(toast);
-  setTimeout(()=>toast.remove(), 6000);
+// Open a draft; the user sends it from their email app.
+function contactBody(form) {
+  const values = new FormData(form);
+  return [
+    `Name: ${values.get('first_name')} ${values.get('last_name')}`,
+    `Phone: ${values.get('phone')}`,
+    `Email: ${values.get('email')}`,
+    `Service: ${values.get('service')}`,
+    '',
+    String(values.get('message') || '')
+  ].join('\n');
 }
+document.getElementById('copy-message').addEventListener('click', function() {
+  const form = document.getElementById('contact-form');
+  if (!form.reportValidity()) return;
+  const draft = document.getElementById('email-draft');
+  draft.value = contactBody(form);
+  draft.hidden = false;
+  draft.focus();
+  draft.select();
+});
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const body = contactBody(this);
+  location.href = 'mailto:office@majortomsair.com?subject=' +
+    encodeURIComponent('New inquiry from majortomsair.com') + '&body=' + encodeURIComponent(body);
+});
 </script>
 </body>
 </html>
