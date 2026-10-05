@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Major Tom's Air Repair">
 <meta property="og:title" content="Major Tom's Air — Palm Beach County HVAC">
-<meta property="og:description" content="Licensed, family-owned HVAC in Boynton Beach, FL. AC repair, installation, maintenance. (561) 860-3670.">
+<meta property="og:description" content="Licensed, family-owned HVAC in Delray Beach, FL. AC repair, installation, maintenance. (561) 860-3670.">
 <meta property="og:url" content="https://majortomsair.com/">
 <meta property="og:image" content="https://majortomsair.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@majortomsair">
 <meta name="twitter:title" content="Major Tom's Air — Palm Beach County HVAC">
-<meta name="twitter:description" content="Licensed, family-owned HVAC in Boynton Beach, FL. AC repair, installation, maintenance. (561) 860-3670.">
+<meta name="twitter:description" content="Licensed, family-owned HVAC in Delray Beach, FL. AC repair, installation, maintenance. (561) 860-3670.">
 <meta name="twitter:image" content="https://majortomsair.com/assets/og-image.png">
 
 <!-- Structured data: HVACBusiness -->
@@ -44,17 +44,13 @@
   "priceRange": "$$",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Boynton Beach",
+    "addressLocality": "Delray Beach",
     "addressRegion": "FL",
     "addressCountry": "US"
   },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 26.5318,
-    "longitude": -80.0905
-  },
   "areaServed": [
     { "@type": "AdministrativeArea", "name": "Palm Beach County, FL" },
+    { "@type": "AdministrativeArea", "name": "Broward County, FL" },
     { "@type": "City", "name": "Boynton Beach" },
     { "@type": "City", "name": "Delray Beach" },
     { "@type": "City", "name": "Boca Raton" },
@@ -97,7 +93,10 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Repair" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AC Installation" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Maintenance Plans" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial HVAC" } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial HVAC" } },
+      { "@type": "Offer", "name": "Annual Maintenance Plan", "price": "149", "priceCurrency": "USD", "description": "1 visit per year, single system", "itemOffered": { "@type": "Service", "name": "AC Maintenance Agreement" } },
+      { "@type": "Offer", "name": "Semi-Annual Maintenance Plan", "price": "269", "priceCurrency": "USD", "description": "2 visits per year, single system", "itemOffered": { "@type": "Service", "name": "AC Maintenance Agreement" } },
+      { "@type": "Offer", "name": "Quarterly Maintenance Plan", "price": "459", "priceCurrency": "USD", "description": "4 visits per year, single system", "itemOffered": { "@type": "Service", "name": "AC Maintenance Agreement" } }
     ]
   }
 }
@@ -788,7 +787,7 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
-    <img src="assets/bumble.png" width="500" height="497" alt="Bumble the yeti — Major Tom's Air Repair mascot" class="nav-logo-img">
+    <img src="assets/bumble-nav.webp" width="140" height="139" alt="Bumble the yeti — Major Tom's Air Repair mascot" class="nav-logo-img">
     <div class="nav-logo-text">
       Major Tom's Air
       <small>Palm Beach County HVAC</small>
@@ -806,6 +805,7 @@
   <a href="tel:5618603670" class="nav-cta">☎ (561) 860-3670</a>
 </nav>
 
+<main>
 <!-- HERO -->
 <section class="hero" id="home">
   <svg class="hero-rings" viewBox="0 0 680 680" fill="none" aria-hidden="true">
@@ -848,7 +848,7 @@
       <div class="bumble-outer-ring"></div>
       <div class="bumble-inner-ring"></div>
       <div class="bumble-bubble">Ground control - it's cold in here! ❄️</div>
-      <img src="assets/bumble-hero.png" width="700" height="584" alt="Major Tom's Air Repair" class="bumble-img" id="bumble">
+      <img src="assets/bumble-hero.webp" width="640" height="534" alt="Major Tom's Air Repair" class="bumble-img" id="bumble">
     </div>
   </div>
 </section>
@@ -933,7 +933,7 @@
 
 <!-- MOUNTAIN DIVIDER -->
 <div class="mountain-divider" style="background: var(--warm); line-height:0; overflow:hidden;">
-  <img src="assets/mountain.png" width="1800" height="208" alt="" aria-hidden="true" style="width:100%; display:block; mix-blend-mode: multiply; opacity: 0.82;">
+  <img src="assets/mountain.webp" width="1800" height="208" alt="" aria-hidden="true" style="width:100%; height:auto; display:block; mix-blend-mode: multiply; opacity: 0.82;">
 </div>
 
 <!-- ABOUT -->
@@ -1136,11 +1136,12 @@
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
-    <img src="assets/bumble.png" width="500" height="497" alt="Bumble the yeti — Major Tom's Air Repair mascot" class="footer-bumble">
+    <img src="assets/bumble-nav.webp" width="140" height="139" alt="Bumble the yeti — Major Tom's Air Repair mascot" class="footer-bumble">
     <div class="footer-brand">
       Major Tom's Air Repair, LLC.
       <small>Delray Beach, FL · Palm Beach County · Licensed & Insured</small>
@@ -1171,7 +1172,7 @@
     <span class="mab-icon" aria-hidden="true">💬</span>
     <span>Text</span>
   </a>
-  <a href="#contact" class="mab-message" aria-label="Jump to the contact form">
+  <a href="#contact" class="mab-message">
     <span class="mab-icon" aria-hidden="true">✉</span>
     <span>Message</span>
   </a>
