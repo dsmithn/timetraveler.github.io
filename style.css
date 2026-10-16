@@ -1,0 +1,177 @@
+/* Major Tom's Air Repair: one stylesheet for every page. */
+:root {
+  --ink: #14213d;
+  --muted: #45506a;
+  --blue: #11408f;
+  --blue-dark: #0b2f6b;
+  --sky: #95b2dd;
+  --bg: #ffffff;
+  --soft: #f3f6fb;
+  --line: #d7e0ee;
+  --radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--blue); text-underline-offset: 2px; }
+a:hover { color: var(--blue-dark); }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.site-header :focus-visible, .site-footer :focus-visible { outline-color: #fff; }
+
+/* Links inside sentences get a 48px-tall tap area without changing the line spacing. */
+main p a, main li > p a { display: inline-block; padding: .75rem 0; margin: -.75rem 0; }
+
+h1, h2, h3 { line-height: 1.2; font-weight: 700; margin: 0 0 .5em; }
+h1 { font-size: clamp(1.9rem, 6vw, 2.75rem); }
+h2 { font-size: clamp(1.4rem, 4vw, 1.75rem); }
+h3 { font-size: 1.125rem; }
+p { margin: 0 0 1em; }
+
+.wrap { max-width: 70rem; margin: 0 auto; padding: 0 1rem; }
+.prose, .wrap.prose > * { max-width: 65ch; }
+.wrap.prose { max-width: 70rem; }
+
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: #fff; color: var(--blue); padding: .75rem 1rem; z-index: 20;
+}
+.skip:focus { left: 1rem; top: 1rem; }
+
+/* Header */
+.site-header { background: var(--blue); color: #fff; }
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; min-height: 4.5rem;
+}
+.brand {
+  display: flex; align-items: center; gap: .6rem;
+  color: #fff; text-decoration: none; font-weight: 700; line-height: 1.15;
+  min-height: 48px;
+}
+.brand:hover { color: #fff; }
+.brand img { width: 64px; height: 53px; }
+.header-call {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; min-width: 48px; padding: 0 1rem;
+  background: #fff; color: var(--blue); border-radius: var(--radius);
+  font-weight: 700; text-decoration: none; white-space: nowrap;
+}
+.header-call:hover { color: var(--blue-dark); background: var(--soft); }
+.header-call .num { display: none; }
+
+/* Buttons */
+.btn {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 56px; padding: .75rem 1.25rem;
+  border-radius: var(--radius); border: 2px solid var(--blue);
+  background: var(--blue); color: #fff;
+  font: inherit; font-weight: 700; font-size: 1.15rem;
+  text-decoration: none; text-align: center; cursor: pointer;
+}
+.btn:hover { background: var(--blue-dark); border-color: var(--blue-dark); color: #fff; }
+.btn-outline { background: #fff; color: var(--blue); }
+.btn-outline:hover { background: var(--soft); color: var(--blue-dark); }
+.btn-inline { display: inline-flex; min-height: 48px; font-size: 1rem; }
+
+/* Home hero */
+.hero { padding: 1.5rem 0 1rem; }
+.hero .lead { font-size: 1.125rem; }
+.hero .btn { width: 100%; max-width: 26rem; margin: 1.25rem 0; }
+.facts { list-style: none; padding: 0; margin: 0 0 1rem; }
+.facts li { padding: .35rem 0; border-bottom: 1px solid var(--line); }
+.facts li:last-child { border-bottom: 0; }
+.hours-line { font-weight: 600; margin: 0 0 1rem; }
+.van { margin: 0; }
+.van img { width: 100%; border-radius: var(--radius); aspect-ratio: 16 / 9; }
+
+/* Sections */
+section { padding: 1.75rem 0; }
+.band { background: var(--soft); }
+blockquote { margin: 0; padding: 0 0 0 1rem; border-left: 4px solid var(--sky); }
+blockquote p { margin-bottom: .4em; }
+blockquote footer, .source { color: var(--muted); font-size: .95rem; }
+.reviews blockquote + blockquote { margin-top: 1.5rem; }
+
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows > li { padding: 1rem 0; border-top: 1px solid var(--line); }
+.rows > li:last-child { border-bottom: 1px solid var(--line); }
+.rows h3 { margin-bottom: .25em; }
+.rows p { margin-bottom: .6em; }
+
+.plans { display: grid; gap: 1rem; list-style: none; padding: 0; margin: 1rem 0; }
+.plan {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1rem 1.1rem; background: #fff;
+}
+.plan h3 { margin-bottom: .1em; }
+.plan .price { font-size: 1.6rem; font-weight: 700; margin: .2em 0; }
+.plan ul { padding-left: 1.2rem; margin: .5em 0 0; }
+
+.checklist { columns: 1; padding-left: 1.2rem; }
+
+.faq h3 { margin-top: 1.25rem; }
+
+/* Message form (fallback) */
+form { max-width: 34rem; }
+label { display: block; font-weight: 600; margin: .9rem 0 .3rem; }
+input, select, textarea {
+  width: 100%; min-height: 48px; padding: .6rem .75rem;
+  font: inherit; color: var(--ink); background: #fff;
+  border: 1px solid #8592a8; border-radius: var(--radius);
+}
+textarea { min-height: 7rem; }
+form .btn { margin-top: 1.1rem; width: 100%; }
+#email-draft { margin-top: .6rem; }
+.form-note { color: var(--muted); font-size: .95rem; margin-top: .6rem; }
+
+/* Register page */
+.brands { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); margin: 1.25rem 0; max-width: 34rem; }
+.brands a {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+  min-height: 9rem; padding: 1rem; border: 1px solid var(--line); border-radius: var(--radius);
+  background: #fff; font-weight: 700; text-decoration: none;
+}
+.brands a:hover { border-color: var(--blue); }
+.brands img { height: 4.5rem; width: auto; max-width: 100%; object-fit: contain; }
+
+/* Footer */
+.site-footer { background: var(--ink); color: #e9eef7; padding: 2rem 0 6.5rem; font-size: .975rem; }
+.site-footer a { color: #fff; display: inline-block; padding: .55rem 0; min-height: 48px; }
+.site-footer p { margin-bottom: .6em; }
+.site-footer .links { list-style: none; padding: 0; margin: .5rem 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+.site-footer .small { color: #c4cee0; font-size: .9rem; }
+
+/* Sticky call bar, phones only */
+.call-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 10;
+  padding: .5rem 1rem calc(.5rem + env(safe-area-inset-bottom));
+  background: #fff; border-top: 1px solid var(--line);
+}
+.call-bar .btn { width: 100%; }
+
+@media (min-width: 40rem) {
+  .plans { grid-template-columns: repeat(3, 1fr); }
+  .checklist { columns: 2; column-gap: 2.5rem; }
+}
+
+@media (min-width: 56rem) {
+  .header-call .num { display: inline; margin-left: .35rem; }
+  .hero { padding: 2.5rem 0 1.5rem; }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+  .call-bar { display: none; }
+  .site-footer { padding-bottom: 2rem; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
