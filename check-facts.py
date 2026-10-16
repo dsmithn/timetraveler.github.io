@@ -131,7 +131,7 @@ class Page(HTMLParser):
             self._skip = "jsonld" if a.get("type") == "application/ld+json" else "script"
         elif tag == "style":
             self._skip = "style"
-        for attr in ("href", "src", "action"):
+        for attr in ("href", "src", "action", "data-mailto"):
             if attr in a:
                 self.links.append((line, attr, a[attr]))
         for attr in ("srcset", "imagesrcset"):
@@ -341,6 +341,8 @@ def check(facts: dict[str, str]) -> list[str]:
                 errors.append(f"{where}: {url} (SMS_ENABLED={facts['SMS_ENABLED']})")
             if low.startswith("mailto:") and url.split("?")[0] != f"mailto:{facts['EMAIL']}":
                 errors.append(f"{where}: {url} != mailto:{facts['EMAIL']}")
+            if attr == "action" and re.match(r"^(mailto:|http:)", low):
+                errors.append(f"{where}: form action {url!r} is not HTTPS; browsers flag the form as insecure (Lighthouse is-on-https)")
             if re.match(r"^(https?:|mailto:|tel:|sms:|data:)", low):
                 continue
             target, _, frag = url.partition("#")

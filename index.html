@@ -207,7 +207,7 @@
     <div class="wrap">
       <h2 id="write">Rather write than call?</h2>
       <p class="prose">Calling is faster. This form opens an email to office@majortomsair.com in your email app, and you send it from there.</p>
-      <form id="contact-form" action="mailto:office@majortomsair.com" method="post" enctype="text/plain">
+      <form id="contact-form" data-mailto="mailto:office@majortomsair.com">
         <label for="cf-name">Name</label>
         <input id="cf-name" name="name" type="text" autocomplete="name" required>
         <label for="cf-phone">Phone</label>
@@ -305,7 +305,7 @@
   }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    location.href = form.getAttribute('action') + '?subject=' + encodeURIComponent('Message from majortomsair.com') +
+    location.href = form.getAttribute('data-mailto') + '?subject=' + encodeURIComponent('Message from majortomsair.com') +
       '&body=' + encodeURIComponent(body());
   });
   document.getElementById('show-draft').addEventListener('click', function () {
