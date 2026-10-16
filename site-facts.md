@@ -44,26 +44,26 @@ Line numbers are kept current by `check-facts.py --update-locations`. A fact can
 <!-- LOCATIONS:START -->
 | Fact | Where it appears (file:line) |
 |---|---|
-| PHONE_DISPLAY | index.html:7, index.html:16, index.html:35, index.html:75, index.html:85, index.html:117, index.html:122, index.html:132, index.html:196, index.html:229, index.html:246, maintenance.html:7, maintenance.html:16, maintenance.html:34, maintenance.html:74, maintenance.html:118, maintenance.html:147, maintenance.html:156, maintenance.html:173, register.html:7, register.html:16, register.html:34, register.html:74, register.html:93, register.html:102, register.html:119 |
-| PHONE_TEL | index.html:75, index.html:85, index.html:117, index.html:122, index.html:132, index.html:229, index.html:246, maintenance.html:74, maintenance.html:118, maintenance.html:147, maintenance.html:156, maintenance.html:173, register.html:74, register.html:93, register.html:102, register.html:119 |
-| EMAIL | index.html:36, index.html:209, index.html:210, index.html:219, index.html:229, maintenance.html:35, maintenance.html:156, register.html:35, register.html:93, register.html:102 |
-| LICENSE | index.html:52, index.html:90, index.html:231, maintenance.html:51, maintenance.html:158, register.html:51, register.html:104 |
-| HOURS_WEEKDAYS | index.html:49, index.html:93, index.html:230, maintenance.html:48, maintenance.html:147, maintenance.html:157, register.html:48, register.html:103 |
-| HOURS_SATURDAY | index.html:50, index.html:93, index.html:230, maintenance.html:49, maintenance.html:147, maintenance.html:157, register.html:49, register.html:103 |
-| HOURS_SUNDAY | index.html:93, index.html:230, maintenance.html:147, maintenance.html:157, register.html:103 |
-| SERVICE_CALL | index.html:7, index.html:59, index.html:87, index.html:194, maintenance.html:58, maintenance.html:117, register.html:58 |
-| PLAN_ANNUAL | index.html:60, index.html:126, index.html:157, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
-| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:60, index.html:158, maintenance.html:59, maintenance.html:91, register.html:59 |
-| PLAN_ANNUAL_DISCOUNT | index.html:60, index.html:61, index.html:158, index.html:163, index.html:194, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_SEMI | index.html:61, index.html:162, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
-| PLAN_SEMI_EXTRA_SYSTEM | index.html:61, index.html:163, maintenance.html:60, maintenance.html:101, register.html:60 |
-| PLAN_SEMI_DISCOUNT | index.html:60, index.html:61, index.html:158, index.html:163, index.html:194, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_QUARTERLY | index.html:62, index.html:167, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
-| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:62, index.html:168, maintenance.html:61, maintenance.html:111, register.html:61 |
-| PLAN_QUARTERLY_DISCOUNT | index.html:62, index.html:168, index.html:194, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
-| AREA_LINE | index.html:84, index.html:198 |
+| PHONE_DISPLAY | index.html:7, index.html:16, index.html:35, index.html:75, index.html:85, index.html:121, index.html:130, index.html:148, index.html:218, index.html:251, index.html:268, maintenance.html:7, maintenance.html:16, maintenance.html:34, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:34, register.html:74, register.html:93, register.html:102, register.html:119 |
+| PHONE_TEL | index.html:75, index.html:85, index.html:121, index.html:130, index.html:148, index.html:251, index.html:268, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
+| EMAIL | index.html:36, index.html:231, index.html:232, index.html:241, index.html:251, maintenance.html:35, maintenance.html:162, register.html:35, register.html:93, register.html:102 |
+| LICENSE | index.html:52, index.html:90, index.html:253, maintenance.html:51, maintenance.html:164, register.html:51, register.html:104 |
+| HOURS_WEEKDAYS | index.html:49, index.html:93, index.html:252, maintenance.html:48, maintenance.html:153, maintenance.html:163, register.html:48, register.html:103 |
+| HOURS_SATURDAY | index.html:50, index.html:93, index.html:252, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
+| HOURS_SUNDAY | index.html:93, index.html:252, maintenance.html:153, maintenance.html:163, register.html:103 |
+| SERVICE_CALL | index.html:7, index.html:59, index.html:87, index.html:216, maintenance.html:58, maintenance.html:117, register.html:58 |
+| PLAN_ANNUAL | index.html:60, index.html:138, index.html:179, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
+| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:60, index.html:180, maintenance.html:59, maintenance.html:91, register.html:59 |
+| PLAN_ANNUAL_DISCOUNT | index.html:60, index.html:61, index.html:180, index.html:185, index.html:216, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_SEMI | index.html:61, index.html:184, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
+| PLAN_SEMI_EXTRA_SYSTEM | index.html:61, index.html:185, maintenance.html:60, maintenance.html:101, register.html:60 |
+| PLAN_SEMI_DISCOUNT | index.html:60, index.html:61, index.html:180, index.html:185, index.html:216, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_QUARTERLY | index.html:62, index.html:189, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
+| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:62, index.html:190, maintenance.html:61, maintenance.html:111, register.html:61 |
+| PLAN_QUARTERLY_DISCOUNT | index.html:62, index.html:190, index.html:216, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
+| AREA_LINE | index.html:84, index.html:220 |
 | AREA_JSONLD | index.html:44, index.html:45, index.html:46, maintenance.html:43, maintenance.html:44, maintenance.html:45, register.html:43, register.html:44, register.html:45 |
-| BBB_RATING | index.html:231, maintenance.html:158, register.html:104 |
+| BBB_RATING | index.html:253, maintenance.html:164, register.html:104 |
 <!-- LOCATIONS:END -->
 
 ## How to change your hours (5 steps)
@@ -92,6 +92,25 @@ The home page works out "Office hours today" or "Office closed until ..." by its
 - add a FAQ answer: "Can I text you? Yes, text (561) 860-3670."
 
 `check-facts.py` fails on any texting mention or `sms:` link while the flag is `false`, and on any `sms:` link to a different number once it is `true`.
+
+## Photos Devin needs to provide
+
+The site shows six **sample photos** until Devin sends his own. Each one carries a small "Sample photo, replace with yours" tag in its corner on the live page, so nobody mistakes a stock photo for his work. Real photos of his own jobs, his van and his town will always beat these.
+
+**Devin:** take each photo below on your phone (landscape, in daylight, no customers' faces, house numbers or other companies' names in the frame) and send it to Destin. **Destin** crops it to 3:2, saves `assets/photos/<slot>-480.webp` and `-800.webp` (each 60 KB or less), points the page's `<img>` at them, removes the tag and the `ph` class from that `<figure class="photo ph">` (it keeps `photo`), and deletes the row here. `check-facts.py` fails if any image under `assets/placeholders/` lacks its tag or its row, or if a row here no longer matches a sample on a page.
+
+<!-- PHOTOS:START -->
+| Slot | Where it shows | What to photograph | Orientation | Size | Sample in place now |
+|---|---|---|---|---|---|
+| `ac-repair` | Home page, "AC repair" card | Your hands (or a tech's) on a gauge set at a customer's outdoor unit | Landscape, 3:2 | At least 1600 × 1067 px | Pexels photo 5463580 by José Andrés Pacheco Cortes, https://www.pexels.com/photo/man-repairing-an-aircon-5463580/ (Pexels License), cropped to the hands |
+| `new-system` | Home page, "New systems" card | A new condenser you installed beside a stucco house, with the pad and line set showing | Landscape, 3:2 | At least 1600 × 1067 px | Pexels photo 4119844 by Curtis Adams, https://www.pexels.com/photo/facade-of-a-house-4119844/ (Pexels License), cropped |
+| `maintenance` | Home page, "Maintenance plans" card | A thermostat on a customer's wall, brand name out of frame | Landscape, 3:2 | At least 1600 × 1067 px | Pexels photo 27638181 by Alexander Mass, https://www.pexels.com/photo/a-digital-thermostat-on-a-wall-next-to-a-window-27638181/ (Pexels License), cropped, maker's mark blurred |
+| `commercial` | Home page, "Commercial" card | A rooftop or wall unit at a business you service, with no business sign in frame | Landscape, 3:2 | At least 1600 × 1067 px | Pexels photo 16600100 by aboodi vesakaran, https://www.pexels.com/photo/minimal-background-16600100/ (Pexels License), cropped, maker's logo blurred |
+| `street` | Home page, "Family owned and operated" | A Delray Beach street at golden hour, or the van parked on a local street | Landscape, 3:2 | At least 1600 × 1067 px | Unsplash photo LamrkBdQAdY by Dmytro Koplyk, https://unsplash.com/photos/sunset-over-a-coastal-road-with-houses-LamrkBdQAdY (Unsplash License) |
+| `attic` | Maintenance plans page, beside the checklist | An attic air handler you serviced, panel off, drain pan showing | Landscape, 3:2 | At least 1600 × 1067 px | Unsplash photo 8JzTjhJWYF0 by Sebastian Herrmann, https://unsplash.com/photos/brown-wooden-attic-8JzTjhJWYF0 (Unsplash License) |
+<!-- PHOTOS:END -->
+
+Licences (checked 2026-10-16): Pexels, "All photos and videos on Pexels are free to use. Attribution is not required." Unsplash, "free, including for commercial purposes, without permission from or attributing the photographer or Unsplash." The Pexels licence also says "Don't imply endorsement of your product by people or brands on the imagery", which is one reason no sample shows a face or a readable brand.
 
 ## Sources for these facts (checked 2026-10-16)
 

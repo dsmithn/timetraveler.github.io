@@ -35,8 +35,8 @@ a:hover { color: var(--blue-dark); }
 main p a, main li > p a { display: inline-block; padding: .75rem 0; margin: -.75rem 0; }
 
 h1, h2, h3 { line-height: 1.2; font-weight: 700; margin: 0 0 .5em; }
-h1 { font-size: clamp(1.9rem, 6vw, 2.75rem); }
-h2 { font-size: clamp(1.4rem, 4vw, 1.75rem); }
+h1 { font-size: clamp(2.1rem, 7.5vw, 3.25rem); letter-spacing: -.01em; }
+h2 { font-size: clamp(1.5rem, 4.5vw, 2rem); margin-bottom: .75em; }
 h3 { font-size: 1.125rem; }
 p { margin: 0 0 1em; }
 
@@ -87,8 +87,8 @@ p { margin: 0 0 1em; }
 .btn-inline { display: inline-flex; min-height: 48px; font-size: 1rem; }
 
 /* Home hero */
-.hero { padding: 1.5rem 0 1rem; }
-.hero .lead { font-size: 1.125rem; }
+.hero { padding: 2rem 0 1.5rem; }
+.hero .lead { font-size: 1.2rem; color: var(--muted); }
 .hero .btn { width: 100%; max-width: 26rem; margin: 1.25rem 0; }
 .facts { list-style: none; padding: 0; margin: 0 0 1rem; }
 .facts li { padding: .35rem 0; border-bottom: 1px solid var(--line); }
@@ -98,18 +98,32 @@ p { margin: 0 0 1em; }
 .van img { width: 100%; border-radius: var(--radius); aspect-ratio: 16 / 9; }
 
 /* Sections */
-section { padding: 1.75rem 0; }
+section { padding: 2.5rem 0; }
 .band { background: var(--soft); }
 blockquote { margin: 0; padding: 0 0 0 1rem; border-left: 4px solid var(--sky); }
 blockquote p { margin-bottom: .4em; }
 blockquote footer, .source { color: var(--muted); font-size: .95rem; }
 .reviews blockquote + blockquote { margin-top: 1.5rem; }
 
-.rows { list-style: none; margin: 0; padding: 0; }
-.rows > li { padding: 1rem 0; border-top: 1px solid var(--line); }
-.rows > li:last-child { border-bottom: 1px solid var(--line); }
-.rows h3 { margin-bottom: .25em; }
-.rows p { margin-bottom: .6em; }
+/* Service cards: photo, heading, one sentence, one button */
+.services { list-style: none; margin: 0; padding: 0; display: grid; gap: 2rem 1.5rem; }
+.services > li { display: flex; flex-direction: column; }
+.services figure { margin: 0 0 1rem; }
+.services h3 { font-size: 1.25rem; margin-bottom: .3em; }
+.services p { margin-bottom: .9em; flex: 1; }
+.services .btn { align-self: flex-start; }
+
+/* Photos. A sample photo also has class ph and a visible tag until Devin sends his own (site-facts.md);
+   replacing it removes only "ph" and the tag, so the layout stays. */
+.photo { position: relative; margin: 0; }
+.photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); background: var(--line); }
+.ph-tag {
+  position: absolute; left: .5rem; top: .5rem;
+  padding: .2rem .5rem; border-radius: 4px;
+  background: #14213d; color: #fff; font-size: .8rem; font-weight: 600; line-height: 1.3;
+}
+.split { display: grid; gap: 1.5rem; align-items: center; }
+
 
 .plans { display: grid; gap: 1rem; list-style: none; padding: 0; margin: 1rem 0; }
 .plan {
@@ -164,12 +178,16 @@ form .btn { margin-top: 1.1rem; width: 100%; }
 
 @media (min-width: 40rem) {
   .plans { grid-template-columns: repeat(3, 1fr); }
+  .services { grid-template-columns: repeat(2, 1fr); }
   .checklist { columns: 2; column-gap: 2.5rem; }
 }
 
 @media (min-width: 56rem) {
   .header-call .num { display: inline; margin-left: .35rem; }
-  .hero { padding: 2.5rem 0 1.5rem; }
+  .hero { padding: 3.5rem 0 3rem; }
+  section { padding: 4rem 0; }
+  .split { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .split .checklist { columns: 1; }
   .hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
   .call-bar { display: none; }
   .site-footer { padding-bottom: 2rem; }

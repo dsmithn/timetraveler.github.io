@@ -10,7 +10,9 @@ BBB rating or service-area value (visible text or JSON-LD) that differs from
 site-facts.md or is attached to the wrong plan or day; JSON-LD that differs
 between pages; a plan card whose full text is not the approved card (CARD_TEMPLATES;
 change its season wording there); price, discount or billing-basis text outside a plan card that is not one of PRICED_TEXTS; a holiday
-notice without both dates; any texting mention while SMS_ENABLED is false; an internal link
+notice without both dates; a sample photo (assets/placeholders/) without its visible "Sample photo,
+replace with yours" tag or its row under "Photos Devin needs to provide", or a row with no sample on
+any page; any texting mention while SMS_ENABLED is false; an internal link
 or asset that doesn't exist; a root-absolute or trailing-slash internal URL; a
 stale locations table.
 
@@ -21,6 +23,7 @@ fact drift it can see; copy changes still get read before a push.
 from __future__ import annotations
 
 import json
+import posixpath
 import re
 import sys
 from html.parser import HTMLParser
@@ -32,6 +35,23 @@ PAGES = ["index.html", "maintenance.html", "register.html"]
 PLAN_PAGES = ["index.html", "maintenance.html"]
 PLANS = {"Annual": "ANNUAL", "Semi-annual": "SEMI", "Quarterly": "QUARTERLY"}
 LOC_START, LOC_END = "<!-- LOCATIONS:START -->", "<!-- LOCATIONS:END -->"
+PHOTOS_START, PHOTOS_END = "<!-- PHOTOS:START -->", "<!-- PHOTOS:END -->"
+PH_DIR = "assets/placeholders/"
+PH_TAG = "Sample photo, replace with yours"
+PH_FILE_RE = re.compile(r"assets/placeholders/([a-z0-9-]+)-\d+\.webp")
+VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+HIDE_RE = re.compile(r"display:none|visibility:hidden|opacity:0(?:\.0*)?(?:;|$|!)")
+
+
+def hides(a: dict[str, str]) -> bool:
+    """True when an element's own attributes hide it."""
+    return any(k in a for k in ("hidden", "aria-hidden", "inert")) or bool(HIDE_RE.search(re.sub(r"\s", "", a.get("style", "").lower())))
+
+
+def ph_path(url: str) -> str | None:
+    """The url as a site path when it points into assets/placeholders/ (any spelling), else None."""
+    path = posixpath.normpath(re.sub(r"^(?:https?:)?//[^/]+", "", url.split("#")[0].split("?")[0].strip()).lstrip("/"))
+    return path if "assets/placeholders/" in path + "/" else None
 
 PHONE_RE = re.compile(r"(?<![\w$])(?:\+?1[ .-]?)?\(?\d{3}\)?[ .-]?\d{3}[ .-]?\d{4}(?!\d)")
 RUN_PHONE_RE = re.compile(r"(?<!\d)(?:\+?1[ .-]?)?\(?\d{3}\)?[ .-]?\d{3}[ .-]?\d{4}(?!\d)")
@@ -102,6 +122,12 @@ class Page(HTMLParser):
         self.links: list[tuple[int, str, str]] = []
         self.ids: set[str] = set()
         self.jsonld: list[str] = []
+        self.figures: list[dict] = []  # {"line", "ph", "hidden", "imgs": [(line, path)], "tags": [{"text", "hidden", "markup"}]}
+        self.loose_ph: list[tuple[int, str]] = []  # sample photos outside any <figure>
+        self.photo_problems: list[tuple[int, str]] = []  # nested or unclosed figures
+        self._open: list[tuple[str, bool]] = []  # open elements and whether each hides itself
+        self._figs: list[dict] = []
+        self._tag: dict | None = None
         self._skip: str | None = None
         self._plan_depth = 0
         self._plan: list[str] = []
@@ -127,6 +153,24 @@ class Page(HTMLParser):
             self._plan_depth += 1
         elif tag == "li" and "plan" in a.get("class", "").split():
             self._plan_depth, self._plan = 1, [str(line)]
+        classes = a.get("class", "").split()
+        hidden = hides(a) or any(h for _, h in self._open)
+        if self._tag is not None:
+            self._tag["markup"] = True  # the label must be plain text
+        if tag == "figure":
+            if self._figs:
+                self.photo_problems.append((line, "a <figure> starts inside another <figure>; close the first one"))
+            self._figs.append({"line": line, "ph": "ph" in classes, "hidden": hidden, "imgs": [], "tags": [], "at": len(self._open)})
+        if tag in ("img", "source"):
+            urls = [a.get("src", "")] + [s.split()[0] for s in a.get("srcset", "").split(",") if s.strip()]
+            found = [(line, path) for path in map(ph_path, urls) if path]
+            (self._figs[-1]["imgs"] if self._figs else self.loose_ph).extend(found)
+        if tag == "span" and "ph-tag" in classes:
+            self._tag = {"text": "", "hidden": hidden, "markup": False, "at": len(self._open)}
+            if self._figs:
+                self._figs[-1]["tags"].append(self._tag)
+        if tag not in VOID:
+            self._open.append((tag, hides(a)))
         if tag == "script":
             self._skip = "jsonld" if a.get("type") == "application/ld+json" else "script"
         elif tag == "style":
@@ -148,13 +192,29 @@ class Page(HTMLParser):
             self._flush()
         if tag in ("script", "style"):
             self._skip = None
+        names = [n for n, _ in self._open]
+        if tag in names:
+            del self._open[len(names) - 1 - names[::-1].index(tag):]
+        if self._tag is not None and len(self._open) <= self._tag["at"]:
+            self._tag = None
+        while self._figs and len(self._open) <= self._figs[-1]["at"]:
+            self.figures.append(self._figs.pop())
         if tag == "li" and self._plan_depth:
             self._plan_depth -= 1
             if not self._plan_depth:
                 nodes = [" ".join(d.split()) for d in self._plan[1:]]
                 self.plans.append((int(self._plan[0]), " ".join(" ".join(nodes).split()), nodes))
 
+    def close(self) -> None:
+        super().close()
+        for fig in self._figs:
+            self.photo_problems.append((fig["line"], "<figure> is never closed"))
+            self.figures.append(fig)
+        self._figs = []
+
     def handle_data(self, data: str) -> None:
+        if self._tag is not None:
+            self._tag["text"] += data
         if self._skip == "jsonld":
             self.jsonld.append(data)
         elif self._skip is None and data.strip():
@@ -395,6 +455,60 @@ def check(facts: dict[str, str]) -> list[str]:
             for k in sorted(set(got_offers) | set(want_offers)):
                 if got_offers.get(k) != want_offers.get(k):
                     errors.append(f"{name}: JSON-LD offer {k!r} is {got_offers.get(k)}, site-facts.md says {want_offers.get(k)}")
+    errors += check_photos(parsed, FACTS_FILE.read_text())
+    return errors
+
+
+def check_photos(parsed: dict[str, "Page"], facts_md: str) -> list[str]:
+    """Every sample photo carries its visible tag and has a complete checklist row, and every row has a sample."""
+    errors: list[str] = []
+    block = re.search(re.escape(PHOTOS_START) + r"(.*?)" + re.escape(PHOTOS_END), facts_md, re.S)
+    if not block:
+        return [f"site-facts.md: the 'Photos Devin needs to provide' table ({PHOTOS_START} ... {PHOTOS_END}) is missing"]
+    listed: set[str] = set()
+    for row in block.group(1).splitlines():
+        if not row.startswith("| `"):
+            continue
+        cells = [c.strip() for c in row.strip().strip("|").split("|")]
+        slot = cells[0].strip("`")
+        if slot in listed:
+            errors.append(f"site-facts.md: photo row {slot!r} appears twice")
+        listed.add(slot)
+        if len(cells) != 6 or not all(cells):
+            errors.append(f"site-facts.md: photo row {slot!r} needs all six cells (slot, where, subject, orientation, size, sample source)")
+    used: set[str] = set()
+    css = (ROOT / "style.css").read_text() if (ROOT / "style.css").exists() else ""
+    for sel, body in re.findall(r"([^{}]+)\{([^}]*)\}", css):
+        if "ph-tag" in sel and HIDE_RE.search(re.sub(r"\s", "", body.lower())):
+            errors.append(f"style.css: a rule for {sel.strip()!r} hides the sample-photo tag")
+    for name, page in parsed.items():
+        for line, problem in page.photo_problems:
+            errors.append(f"{name}:{line}: {problem}")
+        for line, url in page.loose_ph:
+            errors.append(f"{name}:{line}: sample photo {url} is not inside a <figure class=\"ph\"> with its tag")
+        for fig in page.figures:
+            where = f"{name}:{fig['line']}"
+            if fig["ph"] and not fig["imgs"]:
+                errors.append(f"{where}: <figure class=\"ph\"> has no sample photo; remove the class and the tag once the real photo is in")
+            if not fig["imgs"]:
+                continue
+            if not fig["ph"]:
+                errors.append(f"{where}: a sample photo's <figure> needs class=\"ph\" so its tag shows")
+            if fig["hidden"]:
+                errors.append(f"{where}: a sample photo's <figure> is hidden")
+            tags = [g for g in fig["tags"] if " ".join(g["text"].split()) == PH_TAG and not g["hidden"] and not g["markup"]]
+            if len(tags) != 1 or len(fig["tags"]) != 1:
+                errors.append(f"{where}: a sample photo needs exactly one visible <span class=\"ph-tag\">{PH_TAG}</span>")
+            for line, url in fig["imgs"]:
+                m = PH_FILE_RE.fullmatch(url)
+                if not m:
+                    errors.append(f"{name}:{line}: sample photo {url!r} is not named assets/placeholders/<slot>-<width>.webp")
+                    continue
+                used.add(m.group(1))
+                if m.group(1) not in listed:
+                    errors.append(f"{name}:{line}: sample photo {m.group(1)!r} is not listed under 'Photos Devin needs to provide'")
+    for slot in sorted(listed - used):
+        errors.append(f"site-facts.md: photo row {slot!r} has no sample on any page; delete the row once the real photo is in")
     return errors
 
 
