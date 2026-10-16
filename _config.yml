@@ -1,0 +1,4 @@
+exclude:
+  - site-facts.md
+  - check-facts.py
+  - README.md
