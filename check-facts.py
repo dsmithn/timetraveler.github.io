@@ -6,8 +6,9 @@ Run by Destin before any push, never by Devin:
     python3 check-facts.py --update-locations # rewrite the "Where each fact appears" table
 
 Fails on: a phone number, email, license, price, discount, visit count, hours,
-BBB rating or service-area value (visible text or JSON-LD) that differs from
-site-facts.md or is attached to the wrong plan or day; JSON-LD that differs
+founding year or service-area value (visible text or JSON-LD) that differs from
+site-facts.md or is attached to the wrong plan or day; any BBB mention or bbb.org link
+(the business is not accredited); an age claim like "12+ years"; JSON-LD that differs
 between pages; a plan card whose full text is not the approved card (CARD_TEMPLATES;
 change its season wording there); price, discount or billing-basis text outside a plan card that is not one of PRICED_TEXTS; a holiday
 notice without both dates; a sample photo (assets/placeholders/) without its visible "Sample photo,
@@ -63,6 +64,13 @@ VISITS_RE = re.compile(r"(\d+) visits? (?:a|per|each|every) (\w+)")
 TIME = r"\d{1,2}(?::\d\d)?\s?(?:[AaPp][Mm]|[AaPp]\.[Mm]\.)"
 RANGE_RE = re.compile(rf"({TIME})\s*(?:[–—-]|to)\s*({TIME})")
 TEXTING_RE = re.compile(r"\b(sms|texts?|texting|texted)\b", re.I)
+YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
+# A year is checked only in text that talks about the business's age, so a holiday notice or a copyright line passes.
+FOUNDING_WORDS = re.compile(r"\b(?:since|incorporated|founded|established|est\.|started|opened|serving|in business)(?=\W)", re.I)
+# "12+ years", "over 10 years", "10 years in business", "a decade": the founding line is the only tenure claim.
+AGE_CLAIM_RE = re.compile(r"\b\d+\s?\+\s?years?\b|\b(?:over|more than|nearly|almost|about)\s+\d+\s+years?\b|"
+                          r"\b\d+\s+years?\s+(?:in business|of experience|of service|experience|serving)\b|\bdecades?\b", re.I)
+BBB_RE = re.compile(r"\bBBB\b|Better Business Bureau", re.I)  # not accredited, so the site carries no rating
 # Places outside the stated service area. areaServed must match AREA_LINE, so naming these is drift.
 OTHER_PLACES = re.compile(r"\b(broward|miami|fort lauderdale|ft\.? lauderdale|hollywood|coral springs|margate|coconut creek|"
                           r"lighthouse point|hillsboro beach|parkland|tamarac|sunrise|plantation|martin county|stuart|"
@@ -300,7 +308,7 @@ def check(facts: dict[str, str]) -> list[str]:
     area = [a.strip() for a in facts["AREA_JSONLD"].split(";")]
     loose = [t.format(**facts) for t in LOOSE_TEMPLATES]
     hours = [facts["HOURS_WEEKDAYS"], facts["HOURS_SATURDAY"]]
-    bbb = f"BBB rating: {facts['BBB_RATING']}"
+    founded = f"Incorporated {facts['INCORPORATED']}, licensed for installs and full-service work since {facts['LICENSED_SINCE']}"
     area_texts = {t.format(**facts) for t in AREA_TEXTS}
     priced_texts = {t.format(**facts) for t in PRICED_TEXTS}
     parsed: dict[str, Page] = {}
@@ -334,8 +342,12 @@ def check(facts: dict[str, str]) -> list[str]:
                     errors.append(f"{where}: {m} outside a plan card and not in a known sentence: {t.strip()[:70]!r}")
             for m in uncovered(t, RANGE_RE, hours):
                 errors.append(f"{where}: hours {m!r} are not attached to their day as in site-facts.md")
-            for m in uncovered(t, re.compile(r"BBB[^.·]*"), [bbb]):
-                errors.append(f"{where}: {m.strip()!r} != {bbb!r}")
+            if BBB_RE.search(t):
+                errors.append(f"{where}: mentions the BBB; the business is not accredited, so the site carries no rating: {t.strip()[:60]!r}")
+            for m in uncovered(t, YEAR_RE, [founded]) if FOUNDING_WORDS.search(t) else []:
+                errors.append(f"{where}: year {m!r} is not in the founding line from site-facts.md: {t.strip()[:60]!r}")
+            if AGE_CLAIM_RE.search(t):
+                errors.append(f"{where}: age claim {AGE_CLAIM_RE.search(t).group(0)!r}; the footer founding line is the only years claim")
             if AREA_WORDS.search(t) and " ".join(t.split()) not in area_texts:
                 errors.append(f"{where}: service-area text is not one of the known sentences: {t.strip()[:80]!r}")
             if OTHER_PLACES.search(t):
@@ -387,14 +399,16 @@ def check(facts: dict[str, str]) -> list[str]:
         for key in ("LICENSE", "HOURS_WEEKDAYS", "HOURS_SATURDAY", "HOURS_SUNDAY", "PHONE_DISPLAY"):
             if facts[key] not in visible:
                 errors.append(f"{name}: does not show {key} {facts[key]!r}")
-        if bbb not in visible:
-            errors.append(f"{name}: does not show {bbb!r}")
+        if founded not in visible:
+            errors.append(f"{name}: does not show {founded!r}")
         if name == "index.html" and visible.count(facts["AREA_LINE"]) < 2:
             errors.append("index.html: AREA_LINE should appear in the hero and the FAQ")
 
         for line, attr, url in page.links:
             where = f"{name}:{line}"
             low = url.lower()
+            if "bbb.org" in low:
+                errors.append(f"{where}: links to bbb.org; the business is not BBB accredited")
             if low.startswith("tel:") and url != f"tel:{tel}":
                 errors.append(f"{where}: {url} != tel:{tel}")
             if low.startswith("sms:") and (not sms_on or url != f"sms:{tel}"):
@@ -444,6 +458,10 @@ def check(facts: dict[str, str]) -> list[str]:
             errors.append(f"{name}: JSON-LD areaServed != AREA_JSONLD {area}")
         if "aggregateRating" in json.dumps(ld) or "streetAddress" in json.dumps(ld):
             errors.append(f"{name}: JSON-LD must not carry aggregateRating or a street address")
+        if ld.get("foundingDate") != facts["INCORPORATED"]:
+            errors.append(f"{name}: JSON-LD foundingDate {ld.get('foundingDate')!r} != INCORPORATED {facts['INCORPORATED']!r}")
+        if "bbb.org" in json.dumps(ld).lower():
+            errors.append(f"{name}: JSON-LD links to bbb.org; the business is not BBB accredited")
         got = [{k: s.get(k) for k in ("dayOfWeek", "opens", "closes")} for s in ld.get("openingHoursSpecification", [])]
         if got != expected_hours(facts):
             errors.append(f"{name}: JSON-LD hours {got} != site-facts.md {expected_hours(facts)}")
@@ -527,8 +545,10 @@ def locations(facts: dict[str, str]) -> str:
             needles.append(f'"price": "{value[1:]}"')
         if key == "AREA_JSONLD":
             needles = [f'"name": "{a.strip()}"' for a in value.split(";")]
-        if key == "BBB_RATING":
-            needles = [f"BBB rating: {value}"]
+        if key == "INCORPORATED":
+            needles = [f"Incorporated {value}", f'"foundingDate": "{value}"']
+        if key == "LICENSED_SINCE":
+            needles = [f"full-service work since {value}"]
         hits = []
         for name in PAGES:
             for n, text in enumerate((ROOT / name).read_text().splitlines(), 1):

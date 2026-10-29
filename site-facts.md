@@ -29,11 +29,12 @@ PLAN_QUARTERLY_EXTRA_SYSTEM: $200
 PLAN_QUARTERLY_DISCOUNT: 15%
 AREA_LINE: All of Palm Beach County, plus Deerfield Beach and Pompano Beach.
 AREA_JSONLD: Palm Beach County, FL; Deerfield Beach, FL; Pompano Beach, FL
-BBB_RATING: A+
+INCORPORATED: 2014
+LICENSED_SINCE: 2015
 SMS_ENABLED: false
 ```
 
-`BBB_RATING` was last checked on bbb.org on 2026-10-16. Recheck it before each push that touches the site; ratings change.
+`INCORPORATED` and `LICENSED_SINCE` make the footer line "Incorporated 2014, licensed for installs and full-service work since 2015" on every page, and `foundingDate` in the JSON-LD. The site never mentions the BBB: the business is not BBB accredited (Devin, 2026-10-28), so no rating appears, and `check-facts.py` fails on any BBB mention or bbb.org link.
 
 Hours are written with an en dash (–) between the times, like `8 AM – 4:30 PM`. Copy the dash from this file rather than typing a hyphen.
 
@@ -44,26 +45,27 @@ Line numbers are kept current by `check-facts.py --update-locations`. A fact can
 <!-- LOCATIONS:START -->
 | Fact | Where it appears (file:line) |
 |---|---|
-| PHONE_DISPLAY | index.html:7, index.html:16, index.html:35, index.html:75, index.html:85, index.html:121, index.html:130, index.html:148, index.html:218, index.html:251, index.html:268, maintenance.html:7, maintenance.html:16, maintenance.html:34, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:34, register.html:74, register.html:93, register.html:102, register.html:119 |
-| PHONE_TEL | index.html:75, index.html:85, index.html:121, index.html:130, index.html:148, index.html:251, index.html:268, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
-| EMAIL | index.html:36, index.html:231, index.html:232, index.html:241, index.html:251, maintenance.html:35, maintenance.html:162, register.html:35, register.html:93, register.html:102 |
-| LICENSE | index.html:52, index.html:90, index.html:253, maintenance.html:51, maintenance.html:164, register.html:51, register.html:104 |
-| HOURS_WEEKDAYS | index.html:49, index.html:93, index.html:252, maintenance.html:48, maintenance.html:153, maintenance.html:163, register.html:48, register.html:103 |
-| HOURS_SATURDAY | index.html:50, index.html:93, index.html:252, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
-| HOURS_SUNDAY | index.html:93, index.html:252, maintenance.html:153, maintenance.html:163, register.html:103 |
-| SERVICE_CALL | index.html:7, index.html:59, index.html:87, index.html:216, maintenance.html:58, maintenance.html:117, register.html:58 |
-| PLAN_ANNUAL | index.html:60, index.html:138, index.html:179, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
-| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:60, index.html:180, maintenance.html:59, maintenance.html:91, register.html:59 |
-| PLAN_ANNUAL_DISCOUNT | index.html:60, index.html:61, index.html:180, index.html:185, index.html:216, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_SEMI | index.html:61, index.html:184, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
-| PLAN_SEMI_EXTRA_SYSTEM | index.html:61, index.html:185, maintenance.html:60, maintenance.html:101, register.html:60 |
-| PLAN_SEMI_DISCOUNT | index.html:60, index.html:61, index.html:180, index.html:185, index.html:216, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_QUARTERLY | index.html:62, index.html:189, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
-| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:62, index.html:190, maintenance.html:61, maintenance.html:111, register.html:61 |
-| PLAN_QUARTERLY_DISCOUNT | index.html:62, index.html:190, index.html:216, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
-| AREA_LINE | index.html:84, index.html:220 |
-| AREA_JSONLD | index.html:44, index.html:45, index.html:46, maintenance.html:43, maintenance.html:44, maintenance.html:45, register.html:43, register.html:44, register.html:45 |
-| BBB_RATING | index.html:253, maintenance.html:164, register.html:104 |
+| PHONE_DISPLAY | index.html:7, index.html:16, index.html:36, index.html:75, index.html:85, index.html:121, index.html:130, index.html:148, index.html:217, index.html:250, index.html:267, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
+| PHONE_TEL | index.html:75, index.html:85, index.html:121, index.html:130, index.html:148, index.html:250, index.html:267, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
+| EMAIL | index.html:37, index.html:230, index.html:231, index.html:240, index.html:250, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
+| LICENSE | index.html:53, index.html:90, index.html:252, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
+| HOURS_WEEKDAYS | index.html:50, index.html:93, index.html:251, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
+| HOURS_SATURDAY | index.html:51, index.html:93, index.html:251, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
+| HOURS_SUNDAY | index.html:93, index.html:251, maintenance.html:153, maintenance.html:163, register.html:103 |
+| SERVICE_CALL | index.html:7, index.html:59, index.html:87, index.html:215, maintenance.html:58, maintenance.html:117, register.html:58 |
+| PLAN_ANNUAL | index.html:60, index.html:138, index.html:178, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
+| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:60, index.html:179, maintenance.html:59, maintenance.html:91, register.html:59 |
+| PLAN_ANNUAL_DISCOUNT | index.html:60, index.html:61, index.html:179, index.html:184, index.html:215, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_SEMI | index.html:61, index.html:183, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
+| PLAN_SEMI_EXTRA_SYSTEM | index.html:61, index.html:184, maintenance.html:60, maintenance.html:101, register.html:60 |
+| PLAN_SEMI_DISCOUNT | index.html:60, index.html:61, index.html:179, index.html:184, index.html:215, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_QUARTERLY | index.html:62, index.html:188, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
+| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:62, index.html:189, maintenance.html:61, maintenance.html:111, register.html:61 |
+| PLAN_QUARTERLY_DISCOUNT | index.html:62, index.html:189, index.html:215, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
+| AREA_LINE | index.html:84, index.html:219 |
+| AREA_JSONLD | index.html:45, index.html:46, index.html:47, maintenance.html:44, maintenance.html:45, maintenance.html:46, register.html:44, register.html:45, register.html:46 |
+| INCORPORATED | index.html:32, index.html:252, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
+| LICENSED_SINCE | index.html:252, maintenance.html:164, register.html:104 |
 <!-- LOCATIONS:END -->
 
 ## How to change your hours (5 steps)
@@ -117,8 +119,8 @@ Licences (checked 2026-10-16): Pexels, "All photos and videos on Pexels are free
 | Fact | Source |
 |---|---|
 | Phone, email, hours, prices, extra-system prices, discounts, 14-point checklist | The live majortomsair.com `index.html` (upstream `main`): hours on the "Office Hours" lines ("Mon – Fri: 8 AM – 4:30 PM", "Saturday: 9 AM – 12 PM"), plans "$149 … +$50 each additional", "$269 … +$100 each additional", "$459 … +$200 each additional", "10% off service calls ($99 base)", "15% off service calls ($99 base)" |
-| License CAC1818226 | Live site ("Lic. #CAC1818226"). Florida DBPR construction license data file (`CONSTRUCTIONLICENSE_1.csv`, downloaded 2026-10-16): license CAC1818226, licensee DONOHUE, DEVIN J, doing business as MAJOR TOMS AIR REPAIR, LLC, status codes C / A (current, active), first licensed 05/29/2015, expires 08/31/2028. The same file lists MAJOR TOMS AIR REPAIR, LLC as a qualified business (QB), Delray Beach. |
+| License CAC1818226 | Live site ("Lic. #CAC1818226"). Florida DBPR construction license data file (`CONSTRUCTIONLICENSE_1.csv`, downloaded 2026-10-16): license CAC1818226, doing business as MAJOR TOMS AIR REPAIR, LLC, status codes C / A (current, active), first licensed 05/29/2015, expires 08/31/2028. The same file lists MAJOR TOMS AIR REPAIR, LLC as a qualified business (QB), Delray Beach. |
 | Service area | Design decision (spec 2026-10-05): Palm Beach County plus the north-Broward cities Deerfield Beach and Pompano Beach, matching the live site's "Palm Beach and north Broward counties" |
-| BBB rating | bbb.org profile, checked 2026-10-16: rating A+, not BBB accredited, business started 5/29/2015. The site says "BBB rating: A+" and never "accredited". |
+| Incorporated 2014, licensed for installs and full-service work since 2015 | Devin (Discord, 2026-10-28). The DBPR file's first-licensed date, 05/29/2015, agrees with the 2015 half. The site does not mention the BBB: the business is not accredited (Devin, same message). |
 | Reviews (Linda Manni, Steven Swanson, Bonnie Barnes) | Quoted word for word from the live site's reviews section |
-| "After working for others for 30 years …" | The Intro on the Major Tom's Facebook page |
+| "After working for others for 30 years …" | The Intro on the Major Tom's Facebook page. Tom's words, credited to him on the page (Devin, Discord, 2026-10-28). |
