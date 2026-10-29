@@ -1,0 +1,26 @@
+# Runs check-facts.py on every pull request and on every push to main.
+# A pull_request run checks out GitHub's merge of the PR into its base, so it
+# tests the merged result; the merge gate requires that run to pass before merging.
+# Jekyll (GitHub Pages) ignores dot-directories, so .github/ is never published.
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check-facts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Compile check-facts.py
+        run: python3 -m py_compile check-facts.py
+      - name: Check pages against site-facts.md
+        run: python3 check-facts.py
