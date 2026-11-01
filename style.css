@@ -2,12 +2,14 @@
 :root {
   --ink: #14213d;
   --muted: #45506a;
-  --blue: #11408f;
-  --blue-dark: #0b2f6b;
-  --sky: #95b2dd;
+  --navy: #0c2155;
+  --blue: #153c84;
+  --blue-dark: #0c2155;
+  --sky: #95b8e1;
+  --ice: #dfe8f5;
   --bg: #ffffff;
-  --soft: #f3f6fb;
-  --line: #d7e0ee;
+  --soft: #eef3fa;
+  --line: #d3dcea;
   --radius: 8px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
@@ -29,7 +31,7 @@ img { max-width: 100%; height: auto; display: block; }
 a { color: var(--blue); text-underline-offset: 2px; }
 a:hover { color: var(--blue-dark); }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
-.site-header :focus-visible, .site-footer :focus-visible { outline-color: #fff; }
+.site-header :focus-visible, .site-footer :focus-visible, .hero :focus-visible { outline-color: #fff; }
 
 /* Links inside sentences get a 48px-tall tap area without changing the line spacing. */
 main p a, main li > p a { display: inline-block; padding: .75rem 0; margin: -.75rem 0; }
@@ -50,8 +52,8 @@ p { margin: 0 0 1em; }
 }
 .skip:focus { left: 1rem; top: 1rem; }
 
-/* Header */
-.site-header { background: var(--blue); color: #fff; }
+/* Header: the same navy as the hero band below it, so the two read as one dark band. */
+.site-header { background: var(--navy); color: #fff; }
 .site-header .wrap {
   display: flex; align-items: center; justify-content: space-between;
   gap: 1rem; min-height: 4.5rem;
@@ -69,7 +71,7 @@ p { margin: 0 0 1em; }
   background: #fff; color: var(--blue); border-radius: var(--radius);
   font-weight: 700; text-decoration: none; white-space: nowrap;
 }
-.header-call:hover { color: var(--blue-dark); background: var(--soft); }
+.header-call:hover { color: var(--navy); background: var(--ice); }
 .header-call .num { display: none; }
 
 /* Buttons */
@@ -86,15 +88,18 @@ p { margin: 0 0 1em; }
 .btn-outline:hover { background: var(--soft); color: var(--blue-dark); }
 .btn-inline { display: inline-flex; min-height: 48px; font-size: 1rem; }
 
-/* Home hero */
-.hero { padding: 2rem 0 1.5rem; }
-.hero .lead { font-size: 1.2rem; color: var(--muted); }
-.hero .btn { width: 100%; max-width: 26rem; margin: 1.25rem 0; }
+/* Home hero: one static navy band (the van's colour) with Bumble and the wordmark first, then the
+   headline, the Call button, the facts and the hours. No gradients, no animation. */
+.hero { background: var(--navy); color: #fff; padding: 1.5rem 0 2rem; }
+.hero-logo { display: block; width: min(15rem, 70vw); height: auto; margin: 0 auto 1.25rem; }
+.hero .lead { font-size: 1.2rem; color: var(--ice); }
+.hero .btn { width: 100%; max-width: 26rem; margin: 1.25rem 0; background: #fff; color: var(--navy); border-color: #fff; }
+.hero .btn:hover { background: var(--ice); color: var(--navy); border-color: var(--ice); }
 .facts { list-style: none; padding: 0; margin: 0 0 1rem; }
-.facts li { padding: .35rem 0; border-bottom: 1px solid var(--line); }
+.facts li { padding: .35rem 0; border-bottom: 1px solid rgba(255, 255, 255, .22); }
 .facts li:last-child { border-bottom: 0; }
 .hours-line { font-weight: 600; margin: 0 0 1rem; }
-.van { margin: 0; }
+.van { margin: 1.5rem 0 0; }
 .van img { width: 100%; border-radius: var(--radius); aspect-ratio: 16 / 9; }
 
 /* Sections */
@@ -120,7 +125,7 @@ blockquote footer, .source { color: var(--muted); font-size: .95rem; }
 .ph-tag {
   position: absolute; left: .5rem; top: .5rem;
   padding: .2rem .5rem; border-radius: 4px;
-  background: #14213d; color: #fff; font-size: .8rem; font-weight: 600; line-height: 1.3;
+  background: var(--navy); color: #fff; font-size: .8rem; font-weight: 600; line-height: 1.3;
 }
 .split { display: grid; gap: 1.5rem; align-items: center; }
 
@@ -131,7 +136,7 @@ blockquote footer, .source { color: var(--muted); font-size: .95rem; }
   padding: 1rem 1.1rem; background: #fff;
 }
 .plan h3 { margin-bottom: .1em; }
-.plan .price { font-size: 1.6rem; font-weight: 700; margin: .2em 0; }
+.plan .price { font-size: 1.6rem; font-weight: 700; margin: .2em 0; color: var(--blue); }
 .plan ul { padding-left: 1.2rem; margin: .5em 0 0; }
 
 .checklist { columns: 1; padding-left: 1.2rem; }
@@ -162,7 +167,7 @@ form .btn { margin-top: 1.1rem; width: 100%; }
 .brands img { height: 4.5rem; width: auto; max-width: 100%; object-fit: contain; }
 
 /* Footer */
-.site-footer { background: var(--ink); color: #e9eef7; padding: 2rem 0 6.5rem; font-size: .975rem; }
+.site-footer { background: var(--navy); color: #e9eef7; padding: 2rem 0 6.5rem; font-size: .975rem; }
 .site-footer a { color: #fff; display: inline-block; padding: .55rem 0; min-height: 48px; }
 .site-footer p { margin-bottom: .6em; }
 .site-footer .links { list-style: none; padding: 0; margin: .5rem 0; display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
@@ -184,7 +189,9 @@ form .btn { margin-top: 1.1rem; width: 100%; }
 
 @media (min-width: 56rem) {
   .header-call .num { display: inline; margin-left: .35rem; }
-  .hero { padding: 3.5rem 0 3rem; }
+  .hero { padding: 3rem 0 3.5rem; }
+  .hero-logo { margin: 0 0 1.5rem; width: 17rem; }
+  .van { margin: 0; }
   section { padding: 4rem 0; }
   .split { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .split .checklist { columns: 1; }
