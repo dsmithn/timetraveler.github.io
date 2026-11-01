@@ -118,7 +118,7 @@ blockquote footer, .source { color: var(--muted); font-size: .95rem; }
 .services p { margin-bottom: .9em; flex: 1; }
 .services .btn { align-self: flex-start; }
 
-/* Photos. A sample photo also has class ph and a visible tag until Devin sends his own (site-facts.md);
+/* Photos. A sample photo also has class ph and a visible tag until the owner sends his own (site-facts.md);
    replacing it removes only "ph" and the tag, so the layout stays. */
 .photo { position: relative; margin: 0; }
 .photo img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius); background: var(--line); }
