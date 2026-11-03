@@ -45,27 +45,27 @@ Line numbers are kept current by `check-facts.py --update-locations`. A fact can
 <!-- LOCATIONS:START -->
 | Fact | Where it appears (file:line) |
 |---|---|
-| PHONE_DISPLAY | index.html:7, index.html:16, index.html:36, index.html:75, index.html:86, index.html:122, index.html:131, index.html:149, index.html:218, index.html:251, index.html:268, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
-| PHONE_TEL | index.html:75, index.html:86, index.html:122, index.html:131, index.html:149, index.html:251, index.html:268, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
-| EMAIL | index.html:37, index.html:231, index.html:232, index.html:241, index.html:251, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
-| LICENSE | index.html:53, index.html:91, index.html:253, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
-| HOURS_WEEKDAYS | index.html:50, index.html:94, index.html:252, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
-| HOURS_SATURDAY | index.html:51, index.html:94, index.html:252, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
-| HOURS_SUNDAY | index.html:94, index.html:252, maintenance.html:153, maintenance.html:163, register.html:103 |
-| SERVICE_CALL | index.html:7, index.html:59, index.html:88, index.html:216, maintenance.html:58, maintenance.html:117, register.html:58 |
-| PLAN_ANNUAL | index.html:60, index.html:139, index.html:179, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
-| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:60, index.html:180, maintenance.html:59, maintenance.html:91, register.html:59 |
-| PLAN_ANNUAL_DISCOUNT | index.html:60, index.html:61, index.html:180, index.html:185, index.html:216, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_SEMI | index.html:61, index.html:184, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
-| PLAN_SEMI_EXTRA_SYSTEM | index.html:61, index.html:185, maintenance.html:60, maintenance.html:101, register.html:60 |
-| PLAN_SEMI_DISCOUNT | index.html:60, index.html:61, index.html:180, index.html:185, index.html:216, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_QUARTERLY | index.html:62, index.html:189, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
-| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:62, index.html:190, maintenance.html:61, maintenance.html:111, register.html:61 |
-| PLAN_QUARTERLY_DISCOUNT | index.html:62, index.html:190, index.html:216, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
-| AREA_LINE | index.html:85, index.html:220 |
+| PHONE_DISPLAY | index.html:7, index.html:16, index.html:36, index.html:75, index.html:88, index.html:127, index.html:136, index.html:154, index.html:223, index.html:256, index.html:273, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
+| PHONE_TEL | index.html:75, index.html:88, index.html:127, index.html:136, index.html:154, index.html:256, index.html:273, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
+| EMAIL | index.html:37, index.html:236, index.html:237, index.html:246, index.html:256, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
+| LICENSE | index.html:53, index.html:93, index.html:258, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
+| HOURS_WEEKDAYS | index.html:50, index.html:96, index.html:257, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
+| HOURS_SATURDAY | index.html:51, index.html:96, index.html:257, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
+| HOURS_SUNDAY | index.html:96, index.html:257, maintenance.html:153, maintenance.html:163, register.html:103 |
+| SERVICE_CALL | index.html:7, index.html:59, index.html:90, index.html:221, maintenance.html:58, maintenance.html:117, register.html:58 |
+| PLAN_ANNUAL | index.html:60, index.html:144, index.html:184, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
+| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:60, index.html:185, maintenance.html:59, maintenance.html:91, register.html:59 |
+| PLAN_ANNUAL_DISCOUNT | index.html:60, index.html:61, index.html:185, index.html:190, index.html:221, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_SEMI | index.html:61, index.html:189, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
+| PLAN_SEMI_EXTRA_SYSTEM | index.html:61, index.html:190, maintenance.html:60, maintenance.html:101, register.html:60 |
+| PLAN_SEMI_DISCOUNT | index.html:60, index.html:61, index.html:185, index.html:190, index.html:221, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_QUARTERLY | index.html:62, index.html:194, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
+| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:62, index.html:195, maintenance.html:61, maintenance.html:111, register.html:61 |
+| PLAN_QUARTERLY_DISCOUNT | index.html:62, index.html:195, index.html:221, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
+| AREA_LINE | index.html:87, index.html:225 |
 | AREA_JSONLD | index.html:45, index.html:46, index.html:47, maintenance.html:44, maintenance.html:45, maintenance.html:46, register.html:44, register.html:45, register.html:46 |
-| INCORPORATED | index.html:32, index.html:253, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
-| LICENSED_SINCE | index.html:253, maintenance.html:164, register.html:104 |
+| INCORPORATED | index.html:32, index.html:258, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
+| LICENSED_SINCE | index.html:258, maintenance.html:164, register.html:104 |
 <!-- LOCATIONS:END -->
 
 ## How to change your hours (5 steps)
