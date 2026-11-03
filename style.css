@@ -200,3 +200,122 @@ form .btn { margin-top: 1.1rem; width: 100%; }
   .site-footer { padding-bottom: 2rem; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 }
+
+/* ==== PERSONALITY A: Ground control ====
+   A retro mission-control look on the van's navy and blue: cream "flight manual" paper, a typewriter
+   mono for labels and headings, a signal orange for radio lines, and Bumble in a porthole.
+   Fonts: Space Mono (SIL Open Font License, assets/fonts/LICENSE-space-mono.txt). */
+@font-face { font-family: "Space Mono"; src: url("assets/fonts/space-mono-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Space Mono"; src: url("assets/fonts/space-mono-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --paper: #f5f0e4;
+  --signal: #a8380b;   /* 5.6:1 on --paper */
+  --signal-lt: #ffb184; /* 8.1:1 on --navy */
+  --mono: "Space Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+body.dir-a { background: var(--paper); }
+.dir-a h1, .dir-a h2, .dir-a .brand span { font-family: var(--mono); letter-spacing: -.02em; }
+.dir-a h2 { font-size: clamp(1.45rem, 4.8vw, 2.1rem); }
+.dir-a .band { background: #e9e2d0; }
+.dir-a .plan { background: #fffdf7; border: 2px solid var(--navy); border-radius: 2px; box-shadow: 4px 4px 0 var(--navy); }
+
+/* Header: a console strip with a thin orange rule. */
+.dir-a .site-header { border-bottom: 4px solid var(--signal-lt); }
+.dir-a .brand span { text-transform: uppercase; font-size: .95rem; }
+
+.radio {
+  font-family: var(--mono); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .06em; font-size: .95rem; margin: 0 0 .5rem; color: var(--signal);
+}
+.radio::before { content: "\25B8\00a0"; }
+
+/* Hero: navy with a faint blueprint grid (static, no stars), the radio exchange as the headline. */
+.dir-a .hero {
+  position: relative; overflow: hidden; padding: 2rem 0 2.5rem;
+  background-color: var(--navy);
+  background-image:
+    linear-gradient(rgba(149, 184, 225, .09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(149, 184, 225, .09) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.dir-a .hero .radio { color: var(--signal-lt); }
+.dir-a .hero h1 {
+  font-size: clamp(2.5rem, 11vw, 4.6rem); line-height: 1.02; margin: 0 0 .6rem;
+  text-transform: uppercase; letter-spacing: -.04em;
+}
+.dir-a .radio-out { color: var(--sky); }
+.dir-a .radio-out::before { content: "\25C2\00a0"; }
+.dir-a .hero .lead { margin-top: 1rem; }
+.dir-a .hero .btn {
+  border-radius: 999px; font-family: var(--mono); letter-spacing: .02em;
+  background: var(--signal-lt); border-color: var(--signal-lt); color: var(--navy);
+  box-shadow: 0 0 0 4px rgba(255, 177, 132, .25);
+}
+.dir-a .hero .btn:hover { background: #fff; border-color: #fff; }
+
+/* The facts as an instrument readout. */
+.console {
+  border: 2px solid var(--sky); border-radius: 4px; padding: .9rem 1rem .4rem;
+  background: rgba(6, 18, 48, .55); font-family: var(--mono); font-size: .9rem; max-width: 30rem;
+}
+.console-title { margin: 0 0 .4rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--sky); font-size: .78rem; }
+.dir-a .facts li { display: grid; grid-template-columns: 5.2rem 1fr; gap: .6rem; border-bottom: 1px dashed rgba(149, 184, 225, .35); }
+.dir-a .facts li::before { content: attr(data-k); color: var(--signal-lt); text-transform: uppercase; font-weight: 700; }
+.dir-a .hours-line { font-weight: 700; color: #fff; }
+.dir-a .hours-line::before { content: "\25CF\00a0STATUS\00a0"; color: #9be7a8; }
+
+/* Bumble in a porthole, with his radio line. The glass clips him at the rim. */
+.porthole { position: relative; width: 9.5rem; margin: 0 0 1.25rem; }
+.porthole-glass {
+  position: relative; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+  background: radial-gradient(circle at 35% 30%, #1d4a9a 0, #102a66 55%, #081a44 100%);
+  border: 7px solid #c9d3e3; box-shadow: 0 0 0 3px #8592a8, inset 0 0 0 3px rgba(255, 255, 255, .25);
+}
+.porthole-glass::before {
+  content: ""; position: absolute; inset: 14%; border-radius: 50%;
+  border: 2px dashed rgba(149, 184, 225, .35);
+}
+.bumble {
+  position: absolute; left: 50%; top: 18%; width: 112%; max-width: none; height: auto;
+  transform: translateX(-50%) rotate(-8deg); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .35));
+}
+.bubble {
+  position: absolute; left: calc(100% + .5rem); top: 1.25rem; margin: 0; width: 11rem;
+  padding: .55rem .75rem; border-radius: 12px 12px 12px 2px;
+  background: #fff; color: var(--navy); font-family: var(--mono); font-weight: 700; font-size: .82rem; line-height: 1.3;
+  box-shadow: 3px 3px 0 var(--signal-lt);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .bumble { animation: drift 6s ease-in-out infinite alternate; }
+  @keyframes drift { to { transform: translate(-50%, -5%) rotate(-3deg); } }
+}
+.dir-a .van { margin: 2rem 0 0; }
+.dir-a .van img { object-fit: cover; border-radius: 4px; border: 3px solid #c9d3e3; }
+.dir-a .van figcaption { font-family: var(--mono); font-size: .82rem; color: var(--sky); margin-top: .4rem; text-transform: uppercase; letter-spacing: .04em; }
+
+/* Mission list: numbered tiles with corner brackets. */
+.missions { counter-reset: mission; }
+.missions .services > li {
+  counter-increment: mission; position: relative; padding: 1rem;
+  background: #fffdf7; border: 2px solid var(--navy); border-radius: 2px; box-shadow: 6px 6px 0 var(--navy);
+}
+.missions h3 { font-family: var(--mono); text-transform: uppercase; letter-spacing: -.01em; }
+.missions h3::before {
+  content: "Mission " counter(mission, decimal-leading-zero); display: block;
+  font-size: .78rem; color: var(--signal); letter-spacing: .1em; margin-bottom: .2rem;
+}
+.missions .photo img { border-radius: 2px; filter: saturate(.85) contrast(1.05); }
+.dir-a .btn-outline { border-radius: 999px; font-family: var(--mono); font-size: .95rem; }
+
+@media (min-width: 56rem) {
+  .dir-a .hero { padding: 3.5rem 0 4rem; }
+  .dir-a .hero .wrap {
+    grid-template-columns: 1.1fr .9fr; grid-template-areas: "copy port" "copy van";
+    align-items: start; row-gap: 1.5rem;
+  }
+  .dir-a .hero-copy { grid-area: copy; }
+  .dir-a .porthole { grid-area: port; width: 15rem; margin: 0 0 0 2rem; }
+  .dir-a .bubble { top: 2rem; }
+  .dir-a .van { grid-area: van; margin: 0; }
+}

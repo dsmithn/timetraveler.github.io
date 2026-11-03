@@ -20,7 +20,7 @@
 <meta property="og:image:height" content="540">
 <meta property="og:image:alt" content="The Major Tom's Air Repair van">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="assets/van-480.webp" imagesrcset="assets/van-480.webp 480w, assets/van-960.webp 960w" imagesizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-mono-700.woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -64,7 +64,7 @@
 }
 </script>
 </head>
-<body>
+<body class="dir-a">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
@@ -79,22 +79,31 @@
 <main id="main">
   <section class="hero">
     <div class="wrap">
-      <div>
-        <img class="hero-logo" src="assets/logo.webp" width="480" height="400" alt="Major Tom's Air Repair" fetchpriority="high">
-        <h1>AC stopped cooling? Call Major Tom's.</h1>
+      <div class="porthole">
+        <div class="porthole-glass"><img class="bumble" src="assets/bumble.webp" width="240" height="160" alt="Bumble, the Major Tom's mascot, waving" fetchpriority="high"></div>
+        <p class="bubble">Ground control, this is Major Tom.</p>
+      </div>
+      <div class="hero-copy">
+        <p class="radio radio-in">Ground control to Major Tom:</p>
+        <h1>The AC stopped cooling.</h1>
+        <p class="radio radio-out">Major Tom's here. Copy that.</p>
         <p class="lead">Family-owned AC repair in Delray Beach. All of Palm Beach County, plus Deerfield Beach and Pompano Beach.</p>
         <a class="btn" href="tel:+15618603670">Call (561) 860-3670</a>
-        <ul class="facts">
-          <li>$99 service call to diagnose (repairs quoted before work)</li>
-          <li>2-hour arrival windows</li>
-          <li>No commissions</li>
-          <li>FL Lic. CAC1818226</li>
-        </ul>
-        <!-- HOLIDAY_NOTICE: to show a notice for a day off, type it between the quotes of data-holiday-notice below, for example data-holiday-notice="Closed today for Thanksgiving. Leave a voicemail.", put the first day it should show in data-holiday-from and the last day in data-holiday-until, for example data-holiday-from="2026-11-26" data-holiday-until="2026-11-26". -->
-        <p class="hours-line" id="hours-line" data-holiday-notice="" data-holiday-from="" data-holiday-until="" data-closed-suffix="Leave a voicemail.">Office hours: Monday to Friday 8 AM – 4:30 PM, Saturday 9 AM – 12 PM. Closed Sunday.</p>
+        <div class="console">
+          <p class="console-title" aria-hidden="true">Mission readout</p>
+          <ul class="facts">
+            <li data-k="Fee">$99 service call to diagnose (repairs quoted before work)</li>
+            <li data-k="Window">2-hour arrival windows</li>
+            <li data-k="Sales">No commissions</li>
+            <li data-k="Lic.">FL Lic. CAC1818226</li>
+          </ul>
+          <!-- HOLIDAY_NOTICE: to show a notice for a day off, type it between the quotes of data-holiday-notice below, for example data-holiday-notice="Closed today for Thanksgiving. Leave a voicemail.", put the first day it should show in data-holiday-from and the last day in data-holiday-until, for example data-holiday-from="2026-11-26" data-holiday-until="2026-11-26". -->
+          <p class="hours-line" id="hours-line" data-holiday-notice="" data-holiday-from="" data-holiday-until="" data-closed-suffix="Leave a voicemail.">Office hours: Monday to Friday 8 AM – 4:30 PM, Saturday 9 AM – 12 PM. Closed Sunday.</p>
+        </div>
       </div>
       <figure class="van">
-        <img src="assets/van-480.webp" srcset="assets/van-480.webp 480w, assets/van-960.webp 960w" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" width="960" height="540" alt="The Major Tom's Air Repair van, with the phone number on the side" fetchpriority="high">
+        <img src="assets/van-480.webp" srcset="assets/van-480.webp 480w, assets/van-960.webp 960w" sizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)" width="960" height="540" alt="The Major Tom's Air Repair van, with the phone number on the side" loading="lazy" decoding="async">
+        <figcaption>Fig. 1: the vehicle. Family owned and operated.</figcaption>
       </figure>
     </div>
   </section>
@@ -108,9 +117,10 @@
     </div>
   </section>
 
-  <section aria-labelledby="services">
+  <section class="missions" aria-labelledby="services">
     <div class="wrap">
-      <h2 id="services">What we do</h2>
+      <p class="radio">Mission list</p>
+      <h2 id="services">Four kinds of call we answer</h2>
       <ul class="services">
         <li>
           <figure class="photo ph">
