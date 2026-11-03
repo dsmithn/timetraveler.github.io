@@ -200,3 +200,86 @@ form .btn { margin-top: 1.1rem; width: 100%; }
   .site-footer { padding-bottom: 2rem; }
   .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
 }
+
+/* ==== PERSONALITY C: The family truck ====
+   Honest and personal: the van photo is the fold, edge to edge on a phone, with handwritten notes in
+   the van's blue. Warm paper, a sturdy grotesque for headings (Bricolage Grotesque), handwriting
+   (Caveat) only for asides, the family section right under the fold with Tom's quote and an index card.
+   Fonts: SIL Open Font License, assets/fonts/LICENSE-*.txt. */
+@font-face { font-family: "Bricolage Grotesque"; src: url("assets/fonts/bricolage-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Caveat"; src: url("assets/fonts/caveat-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
+:root {
+  --paper: #fbf7ee;
+  --kraft: #efe4cf;
+  --pen: #153c84;      /* the van's blue; 9.3:1 on --paper */
+  --head: "Bricolage Grotesque", -apple-system, "Segoe UI", sans-serif;
+  --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+}
+body.dir-c { background: var(--paper); }
+.dir-c h1, .dir-c h2, .dir-c h3, .dir-c .brand span { font-family: var(--head); letter-spacing: -.02em; }
+.dir-c .band { background: var(--kraft); }
+.hand { font-family: var(--hand); font-weight: 700; color: var(--pen); line-height: 1.1; }
+
+/* Header: plain paper with the logo, so the van does the talking. */
+.dir-c .site-header { background: var(--paper); color: var(--navy); border-bottom: 2px solid var(--navy); }
+.dir-c .brand, .dir-c .brand:hover { color: var(--navy); }
+.dir-c .header-call { background: var(--navy); color: #fff; }
+.dir-c .header-call:hover { background: var(--pen); color: #fff; }
+.dir-c .site-header :focus-visible { outline-color: var(--pen); }
+.dir-c .brand img { filter: drop-shadow(0 0 1px var(--navy)) drop-shadow(0 0 1px var(--navy)); }
+
+/* Hero: paper, a hand note, the headline, the van full width. */
+.dir-c .hero { background: var(--paper); color: var(--navy); padding: 1.25rem 0 2rem; }
+.dir-c .hero :focus-visible { outline-color: var(--pen); }
+.hello { font-size: 1.7rem; margin: 0 0 .25rem; transform: rotate(-2deg); transform-origin: left; }
+.hello::after { content: " \2193"; }
+.dir-c .hero h1 { font-size: clamp(2.3rem, 10vw, 4rem); line-height: 1; margin-bottom: 1rem; }
+.dir-c .van { position: relative; margin: 0 -1rem; }
+.dir-c .van img { border-radius: 0; width: 100%; }
+.dir-c .van figcaption { display: flex; justify-content: space-between; gap: 1rem; padding: .4rem 1rem 0; }
+.note { font-size: 1.35rem; max-width: 12rem; }
+.note-phone::before { content: "\2191 "; }
+.note-family { text-align: right; }
+.note-family::after { content: " \2197"; }
+.dir-c .hero .lead { color: var(--ink); margin-top: 1.25rem; }
+.dir-c .hero .btn { background: var(--navy); color: #fff; border-color: var(--navy); }
+.dir-c .hero .btn:hover { background: var(--pen); border-color: var(--pen); color: #fff; }
+/* Facts as a hand-ticked list. */
+.dir-c .facts li { border-bottom: 1px solid #d8ccb4; padding-left: 1.9rem; position: relative; }
+.dir-c .facts li::before { content: "\2713"; position: absolute; left: .2rem; top: -.15rem; font-family: var(--hand); font-size: 1.6rem; color: var(--pen); }
+.dir-c .hours-line { color: var(--navy); }
+
+/* The family section, right under the fold. */
+.family-up { background: var(--kraft); }
+.kicker { font-size: 1.6rem; margin: 0; transform: rotate(-2deg); transform-origin: left; }
+.family-up h2 { font-size: clamp(1.9rem, 7vw, 2.8rem); }
+.tom { border: 0; padding: 0; margin-top: 1.5rem; }
+.tom p { font-family: var(--head); font-size: clamp(1.3rem, 5vw, 1.7rem); line-height: 1.3; color: var(--navy); }
+.tom footer { color: var(--muted); }
+.sig { font-size: 2.2rem; margin-right: .35rem; display: inline-block; transform: rotate(-4deg); }
+.card-stack { display: grid; gap: 1.75rem; }
+.index-card {
+  border: 0; padding: 1.25rem 1.25rem 1rem; background: #fff; transform: rotate(-1.5deg);
+  border-top: 3px solid #e8a0a0;
+  box-shadow: 0 6px 16px rgba(20, 33, 61, .18); position: relative;
+}
+.index-card::before {
+  content: ""; position: absolute; top: -.7rem; left: 40%; width: 5.5rem; height: 1.4rem;
+  background: rgba(255, 236, 170, .85); transform: rotate(3deg);
+}
+.index-card footer { color: var(--muted); font-weight: 700; }
+.polaroid { background: #fff; padding: .6rem .6rem 2rem; box-shadow: 0 6px 16px rgba(20, 33, 61, .18); transform: rotate(2deg); }
+.polaroid img { border-radius: 0; }
+.polaroid .ph-tag { left: 1.1rem; top: 1.1rem; }
+
+@media (min-width: 56rem) {
+  .dir-c .hero { padding: 2.5rem 0 3rem; }
+  .dir-c .hero .wrap { grid-template-columns: 1fr 1.15fr; grid-template-areas: "copy van" "call van"; column-gap: 3rem; align-items: start; }
+  .dir-c .hero-copy { grid-area: copy; }
+  .dir-c .hero-call { grid-area: call; }
+  .dir-c .van { grid-area: van; margin: 0; }
+  .dir-c .van img { border-radius: 6px; box-shadow: 0 10px 30px rgba(20, 33, 61, .2); }
+  .dir-c .van figcaption { padding: .6rem 0 0; }
+  .hello::after { content: " \2192"; }
+}
