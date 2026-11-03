@@ -20,7 +20,8 @@
 <meta property="og:image:height" content="540">
 <meta property="og:image:alt" content="The Major Tom's Air Repair van">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="assets/van-480.webp" imagesrcset="assets/van-480.webp 480w, assets/van-960.webp 960w" imagesizes="(min-width: 56rem) 34rem, calc(100vw - 2rem)">
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-700.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-300-italic.woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
@@ -64,7 +65,7 @@
 }
 </script>
 </head>
-<body>
+<body class="dir-a2">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="wrap">
@@ -79,10 +80,25 @@
 <main id="main">
   <section class="hero">
     <div class="wrap">
-      <div>
-        <img class="hero-logo" src="assets/logo.webp" width="480" height="400" alt="Major Tom's Air Repair" fetchpriority="high">
-        <h1>AC stopped cooling? Call Major Tom's.</h1>
+      <div class="stage">
+        <div class="porthole">
+          <svg class="rings" viewBox="0 0 680 680" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="340" cy="340" r="280" stroke="rgba(149,178,221,0.22)" stroke-width="2"/>
+            <circle cx="340" cy="340" r="248" stroke="rgba(149,178,221,0.35)" stroke-width="2" stroke-dasharray="4 10"/>
+            <circle cx="340" cy="340" r="182" stroke="rgba(96,194,170,0.3)" stroke-width="2" stroke-dasharray="3 7"/>
+            <path d="M 110 110 L 110 145 M 110 110 L 145 110" stroke="rgba(149,178,221,0.6)" stroke-width="3"/>
+            <path d="M 570 110 L 570 145 M 570 110 L 535 110" stroke="rgba(149,178,221,0.6)" stroke-width="3"/>
+            <path d="M 110 570 L 110 535 M 110 570 L 145 570" stroke="rgba(149,178,221,0.6)" stroke-width="3"/>
+            <path d="M 570 570 L 570 535 M 570 570 L 535 570" stroke="rgba(149,178,221,0.6)" stroke-width="3"/>
+          </svg>
+          <img class="bumble" src="assets/bumble.webp" width="320" height="319" alt="Bumble, the Major Tom's mascot, waving" fetchpriority="high">
+        </div>
+        <p class="bubble">Ground control — it's cold in here!</p>
+      </div>
+      <div class="hero-copy">
+        <h1>Your AC guys.<br><em>The ones you</em> <span class="mint">trust.</span></h1>
         <p class="lead">Family-owned AC repair in Delray Beach. All of Palm Beach County, plus Deerfield Beach and Pompano Beach.</p>
+        <p class="honest">Honest people. Honest service.</p>
         <a class="btn" href="tel:+15618603670">Call (561) 860-3670</a>
         <ul class="facts">
           <li>$99 service call to diagnose (repairs quoted before work)</li>
@@ -110,7 +126,9 @@
 
   <section aria-labelledby="services">
     <div class="wrap">
-      <h2 id="services">What we do</h2>
+      <p class="eyebrow">What We Do</p>
+      <h2 id="services">Full-service HVAC, <em>done right.</em></h2>
+      <p class="prose">No call centers. No commissions. Family-owned.</p>
       <ul class="services">
         <li>
           <figure class="photo ph">
@@ -136,6 +154,7 @@
             <span class="ph-tag">Sample photo, replace with yours</span>
           </figure>
           <h3>Maintenance plans</h3>
+          <p class="humid">"It's not the heat, it's the humidity!" Your system works hard.</p>
           <p>One, two or four visits a year, starting at $149 a year for one system.</p>
           <a class="btn btn-outline btn-inline" href="maintenance.html">See the plans</a>
         </li>
@@ -152,11 +171,14 @@
     </div>
   </section>
 
-  <section class="band" aria-labelledby="family">
+  <div class="mountains" aria-hidden="true"><img src="assets/mountains.webp" width="1200" height="139" alt="" loading="lazy" decoding="async"></div>
+  <section class="band family" aria-labelledby="family">
     <div class="wrap split">
       <div class="prose">
-        <h2 id="family">Family owned and operated</h2>
+        <p class="eyebrow">Family owned and operated</p>
+        <h2 id="family">The AC guy your <em>neighbors recommend.</em></h2>
         <p>Tom started Major Tom's. His sons work alongside him, and his second son joined recently.</p>
+        <p>Our philosophy is simple: call back, show up, and honest about what it costs.</p>
         <blockquote>
           <p>"After working for others for 30 years, I am now able to give you the personal small town feeling service that most of you prefer."</p>
           <footer>Tom, on the Major Tom's Facebook page</footer>
@@ -171,7 +193,8 @@
 
   <section aria-labelledby="plans">
     <div class="wrap">
-      <h2 id="plans">Maintenance plans</h2>
+      <p class="eyebrow">Maintenance Plans</p>
+      <h2 id="plans">Stay ahead of <em>the Florida heat.</em></h2>
       <p class="prose">Prices are per year for one system. Every visit covers the same 14-point check.</p>
       <ul class="plans">
         <li class="plan">
@@ -196,7 +219,8 @@
 
   <section class="band reviews" aria-labelledby="more-reviews">
     <div class="wrap prose">
-      <h2 id="more-reviews">More from customers</h2>
+      <p class="eyebrow">Customer Reviews</p>
+      <h2 id="more-reviews">They said it better <em>than we could.</em></h2>
       <blockquote>
         <p>"Major Tom has been my AC guy for years. Recently bought a house that needed a full new system. The entire experience was amazing — price, service, product. Guys cleaned up before they left. Can't say enough."</p>
         <footer>Steven Swanson</footer>
@@ -227,7 +251,8 @@
 
   <section class="band" aria-labelledby="write">
     <div class="wrap">
-      <h2 id="write">Rather write than call?</h2>
+      <p class="eyebrow">Reach Out</p>
+      <h2 id="write">Let's get your <em>AC sorted.</em></h2>
       <p class="prose">Calling is faster. This form opens an email to office@majortomsair.com in your email app, and you send it from there.</p>
       <form id="contact-form" data-mailto="mailto:office@majortomsair.com">
         <label for="cf-name">Name</label>
@@ -259,7 +284,7 @@
         <li><a href="https://www.facebook.com/p/Major-Toms-Air-Repair-Llc-100057258589435/">Facebook</a></li>
         <li><a href="https://nextdoor.com/page/major-toms-air-repair-llc-boynton-beach-fl">Nextdoor</a></li>
       </ul>
-      <p class="small">Ground control, this is Major Tom.</p>
+      <p class="small sign-off"><img src="assets/bumble.webp" width="320" height="319" alt="" loading="lazy" decoding="async">Ground control, this is Major Tom.</p>
     </div>
   </div>
 </footer>
