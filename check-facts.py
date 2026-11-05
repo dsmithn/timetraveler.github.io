@@ -84,6 +84,10 @@ AREA_TEXTS = [
     "Family-owned AC repair, installation and maintenance in Delray Beach and all of Palm Beach County. {SERVICE_CALL} service call. Call {PHONE_DISPLAY}.",
     "Family-owned AC repair, installation and maintenance in Delray Beach and all of Palm Beach County. Call {PHONE_DISPLAY}.",
     "AC maintenance plans in Palm Beach County: {PLAN_ANNUAL}, {PLAN_SEMI} or {PLAN_QUARTERLY} a year for one system, with a 14-point check on every visit. Call {PHONE_DISPLAY}.",
+    # The owner's own About text from his original site (upstream 4bc8c6b), word for word. Its
+    # "north Broward" is Deerfield Beach and Pompano Beach in AREA_LINE, so OTHER_PLACES allows it.
+    "Major Tom's Air Repair is a family-owned HVAC contractor serving Palm Beach and north Broward counties. "
+    "Our philosophy is simple: call back, show up, and honest about what it costs.",
 ]
 # The only sentences outside a plan card that may carry a price or a discount. {KEY} is a fact value.
 LOOSE_TEMPLATES = [
@@ -350,7 +354,7 @@ def check(facts: dict[str, str]) -> list[str]:
                 errors.append(f"{where}: age claim {AGE_CLAIM_RE.search(t).group(0)!r}; the footer founding line is the only years claim")
             if AREA_WORDS.search(t) and " ".join(t.split()) not in area_texts:
                 errors.append(f"{where}: service-area text is not one of the known sentences: {t.strip()[:80]!r}")
-            if OTHER_PLACES.search(t):
+            if OTHER_PLACES.search(t) and " ".join(t.split()) not in area_texts:
                 errors.append(f"{where}: names {OTHER_PLACES.search(t).group(0)!r}, outside {facts['AREA_LINE']!r}")
             if not sms_on and TEXTING_RE.search(t):
                 errors.append(f"{where}: mentions texting while SMS_ENABLED is false: {t.strip()[:60]!r}")
