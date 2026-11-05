@@ -45,27 +45,27 @@ Line numbers are kept current by `check-facts.py --update-locations`. A fact can
 <!-- LOCATIONS:START -->
 | Fact | Where it appears (file:line) |
 |---|---|
-| PHONE_DISPLAY | index.html:7, index.html:16, index.html:37, index.html:76, index.html:103, index.html:145, index.html:154, index.html:173, index.html:246, index.html:280, index.html:297, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
-| PHONE_TEL | index.html:76, index.html:103, index.html:145, index.html:154, index.html:173, index.html:280, index.html:297, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
-| EMAIL | index.html:38, index.html:260, index.html:261, index.html:270, index.html:280, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
-| LICENSE | index.html:54, index.html:112, index.html:282, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
-| HOURS_WEEKDAYS | index.html:51, index.html:107, index.html:281, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
-| HOURS_SATURDAY | index.html:52, index.html:107, index.html:281, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
-| HOURS_SUNDAY | index.html:107, index.html:281, maintenance.html:153, maintenance.html:163, register.html:103 |
-| SERVICE_CALL | index.html:7, index.html:60, index.html:109, index.html:244, maintenance.html:58, maintenance.html:117, register.html:58 |
-| PLAN_ANNUAL | index.html:61, index.html:163, index.html:207, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
-| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:61, index.html:208, maintenance.html:59, maintenance.html:91, register.html:59 |
-| PLAN_ANNUAL_DISCOUNT | index.html:61, index.html:62, index.html:208, index.html:213, index.html:244, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_SEMI | index.html:62, index.html:212, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
-| PLAN_SEMI_EXTRA_SYSTEM | index.html:62, index.html:213, maintenance.html:60, maintenance.html:101, register.html:60 |
-| PLAN_SEMI_DISCOUNT | index.html:61, index.html:62, index.html:208, index.html:213, index.html:244, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_QUARTERLY | index.html:63, index.html:217, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
-| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:63, index.html:218, maintenance.html:61, maintenance.html:111, register.html:61 |
-| PLAN_QUARTERLY_DISCOUNT | index.html:63, index.html:218, index.html:244, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
-| AREA_LINE | index.html:102, index.html:248 |
+| PHONE_DISPLAY | index.html:7, index.html:16, index.html:37, index.html:76, index.html:103, index.html:145, index.html:154, index.html:173, index.html:245, index.html:279, index.html:296, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
+| PHONE_TEL | index.html:76, index.html:103, index.html:145, index.html:154, index.html:173, index.html:279, index.html:296, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
+| EMAIL | index.html:38, index.html:259, index.html:260, index.html:269, index.html:279, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
+| LICENSE | index.html:54, index.html:112, index.html:281, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
+| HOURS_WEEKDAYS | index.html:51, index.html:107, index.html:280, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
+| HOURS_SATURDAY | index.html:52, index.html:107, index.html:280, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
+| HOURS_SUNDAY | index.html:107, index.html:280, maintenance.html:153, maintenance.html:163, register.html:103 |
+| SERVICE_CALL | index.html:7, index.html:60, index.html:109, index.html:243, maintenance.html:58, maintenance.html:117, register.html:58 |
+| PLAN_ANNUAL | index.html:61, index.html:163, index.html:206, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
+| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:61, index.html:207, maintenance.html:59, maintenance.html:91, register.html:59 |
+| PLAN_ANNUAL_DISCOUNT | index.html:61, index.html:62, index.html:207, index.html:212, index.html:243, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_SEMI | index.html:62, index.html:211, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
+| PLAN_SEMI_EXTRA_SYSTEM | index.html:62, index.html:212, maintenance.html:60, maintenance.html:101, register.html:60 |
+| PLAN_SEMI_DISCOUNT | index.html:61, index.html:62, index.html:207, index.html:212, index.html:243, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_QUARTERLY | index.html:63, index.html:216, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
+| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:63, index.html:217, maintenance.html:61, maintenance.html:111, register.html:61 |
+| PLAN_QUARTERLY_DISCOUNT | index.html:63, index.html:217, index.html:243, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
+| AREA_LINE | index.html:102, index.html:247 |
 | AREA_JSONLD | index.html:46, index.html:47, index.html:48, maintenance.html:44, maintenance.html:45, maintenance.html:46, register.html:44, register.html:45, register.html:46 |
-| INCORPORATED | index.html:33, index.html:282, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
-| LICENSED_SINCE | index.html:282, maintenance.html:164, register.html:104 |
+| INCORPORATED | index.html:33, index.html:281, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
+| LICENSED_SINCE | index.html:281, maintenance.html:164, register.html:104 |
 <!-- LOCATIONS:END -->
 
 ## How to change your hours (5 steps)
@@ -130,7 +130,7 @@ Licences (checked 2026-10-16): Pexels, "All photos and videos on Pexels are free
 
 Prose lines that make a claim, with where each came from. Line numbers refer to the text of the live majortomsair.com `index.html` (upstream `main`, 2026-06-02).
 
-**How the pages speak (2026-11-05).** The pages are the family talking about their own business: "we", "us", "our", never "Major Tom's does …" or "he". The name stays where it is a name: the logo, page titles, the headline "Call Major Tom's.", the radio lines, the footer block, the licence line and the computer-readable block. A quote is signed with a dash and a name. Where a quote or a fact was found ("on the Facebook page", "per …", "via …") is a source note: it goes in this file and never on a page. In the About line ("Our dad, Tom, …") the "we" is his sons; everywhere else it is the family business as a whole.
+**How the pages speak (2026-11-05).** The pages are the family talking about their own business: "we", "us", "our", never "Major Tom's does …" or "he". The name stays where it is a name: the logo, page titles, the headline "Call Major Tom's.", the radio lines, the footer block, the licence line and the computer-readable block. A quote is signed with a dash and a name. Where a quote or a fact was found ("on the Facebook page", "per …", "via …") is a source note: it goes in this file and never on a page. The "we" is the family business as a whole.
 
 | Line on the new pages | Source |
 |---|---|
@@ -146,8 +146,8 @@ Prose lines that make a claim, with where each came from. Line numbers refer to 
 | "If it's urgent, call." (contact section) | :942 "Same-day service by phone only" and :786 "Same-Day by Phone": the phone is his fast path |
 | "You'll need the serial number and model number from your install invoice." (register page) | His own register.html: "You'll need your serial number and model number from your install invoice." |
 | "We work on offices and other businesses, not just homes." | :815 "Residential and commercial."; his "Residential + Commercial" badge |
-| "Our dad, Tom, started Major Tom's. We work alongside him." | Devin (Discord, 2026-10-28, answer 4.2): the "I run it now" line read as if Tom had left; his brother recently joined. Tom is their father. "We" here is his sons, who run the site and work in the business with him. Reworded from "Tom started Major Tom's. His sons work alongside him." on 2026-11-05 (first-person pass); no fact added. Still needs Devin's OK on the exact sentence (open question 9). |
+| "Major Tom's Air Repair is a family-owned HVAC contractor serving Palm Beach and north Broward counties. Our philosophy is simple: call back, show up, and honest about what it costs." (About section) | His original site, word for word (upstream commit 4bc8c6b, index.html:814), grammar left as he wrote it. Put back on 2026-11-05 on the owner's decision ("use Devin's own line"). It replaces the sentence "Our dad, Tom, started Major Tom's. We work alongside him.", which was our wording and never his, removed on the same decision, and the separate tidied philosophy line ("be" added). Open question 9 is resolved for the family sentence by removal; the Nextdoor quote part of question 9 is still open. |
 | "Our mascot" (Bumble alt), "Our van" (van photo alt and the share-image alt on all three pages) | Same things as before, said by the business: "the Major Tom's mascot", "The Major Tom's Air Repair van". Reworded 2026-11-05. |
 | "… a new Tempstar or Rheem system we installed." (register page description) | His own register.html offers the Tempstar and Rheem registration links to his install customers ("from your install invoice"). Reworded from "installed by Major Tom's Air Repair" on 2026-11-05. |
-| "It's not the heat, it's the humidity!", "The AC guy your neighbors recommend.", "Our philosophy is simple: call back, show up, and be honest about what it costs." ("be" added), "About Us", "Reach Out", "Ground control, this is Major Tom.", "Ground control — it's cold in here!" | His own headings, slogans and bubble (:791, :813, :814, :842, :719) and robots.txt. Cut on 2026-11-04 as filler (slop pass): "Honest people. Honest service." (:701), "Full-service HVAC, done right." (:777), "Your system works hard." (:791), "Stay ahead of the Florida heat." (:909), "They said it better than we could.", "Let's get your AC sorted." (:935). |
+| "It's not the heat, it's the humidity!", "The AC guy your neighbors recommend.", "About Us", "Reach Out", "Ground control, this is Major Tom.", "Ground control — it's cold in here!" | His own headings, slogans and bubble (:791, :813, :814, :842, :719) and robots.txt. Cut on 2026-11-04 as filler (slop pass): "Honest people. Honest service." (:701), "Full-service HVAC, done right." (:777), "Your system works hard." (:791), "Stay ahead of the Florida heat." (:909), "They said it better than we could.", "Let's get your AC sorted." (:935). |
 | "Ground control to Major Tom:", "AC stopped cooling? Call Major Tom's.", "Major Tom's here. Copy that.", "Mission readout", "Mission list", "Four kinds of call we answer.", "Fig. 1: the vehicle.", "Pick how often we come out.", "Two more reviews.", "Or email the office." | Voice lines written for the redesign (direction A, 2026-11-02; headline from the Phase 1 draft; the last three from the 2026-11-04 slop pass). They name no price, time, rating, year or guarantee. |
