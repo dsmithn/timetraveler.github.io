@@ -141,21 +141,6 @@ blockquote footer, .source { color: var(--muted); font-size: .95rem; }
 
 .checklist { columns: 1; padding-left: 1.2rem; }
 
-.faq h3 { margin-top: 1.25rem; }
-
-/* Message form (fallback) */
-form { max-width: 34rem; }
-label { display: block; font-weight: 600; margin: .9rem 0 .3rem; }
-input, select, textarea {
-  width: 100%; min-height: 48px; padding: .6rem .75rem;
-  font: inherit; color: var(--ink); background: #fff;
-  border: 1px solid #8592a8; border-radius: var(--radius);
-}
-textarea { min-height: 7rem; }
-form .btn { margin-top: 1.1rem; width: 100%; }
-#email-draft { margin-top: .6rem; }
-.form-note { color: var(--muted); font-size: .95rem; margin-top: .6rem; }
-
 /* Register page */
 .brands { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); margin: 1.25rem 0; max-width: 34rem; }
 .brands a {
@@ -205,8 +190,7 @@ form .btn { margin-top: 1.1rem; width: 100%; }
    The look is the owner's own site (upstream index.html): his navy #020F46, light blue #95B2DD,
    mint #60c2aa and warm #faf8f4; his fonts (Fraunces headings with a light italic half, Space Mono
    labels); his Bumble cut-out in the ring "stage" with a speech bubble; his snow-mountain divider.
-   The voice is the radio exchange: a "Ground control to Major Tom:" call-in above the headline, a
-   "Copy that." reply below it, the facts as a mission readout, the services as a mission list.
+   The words are his: headings, buttons and labels come from his original site (upstream 4bc8c6b).
    Nothing moves: his starfield and spinning rings stay out. Every fact comes from site-facts.md.
    Fonts are self-hosted (SIL Open Font License, assets/fonts/LICENSE-*.txt). */
 @font-face { font-family: "Fraunces"; src: url("assets/fonts/fraunces-700.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: optional; }
@@ -248,33 +232,12 @@ form .btn { margin-top: 1.1rem; width: 100%; }
 .dir-a2 .honest { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 1.25rem; color: #fff; margin: 0; }
 .dir-a2 .hero .btn { border-radius: 999px; }
 
-/* Radio lines: the call-in above the headline and the reply below it, in his mono. */
-.radio {
-  font-family: var(--mono); text-transform: uppercase; letter-spacing: .12em;
-  font-size: .85rem; line-height: 1.4; margin: 0 0 .6rem; color: var(--mt-navy);
-}
-.radio::before { content: "\25B8\00a0"; }
-.dir-a2 .hero .radio-in { color: var(--mt-mint); }
-.dir-a2 .hero .radio-out { color: var(--mt-mid); margin: 0 0 1rem; }
-.dir-a2 .hero .radio-out::before { content: "\25C2\00a0"; }
-
-/* The facts as a mission readout: a thin instrument panel with a label per line. */
+/* The facts and his office hours in a thin panel under the Call button. */
 .console {
   border: 2px solid rgba(149, 178, 221, .45); border-radius: 6px; padding: .9rem 1rem .5rem;
   background: rgba(255, 255, 255, .05); max-width: 30rem;
 }
-.console-title {
-  margin: 0 0 .5rem; font-family: var(--mono); font-size: .75rem; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--mt-mid);
-}
-.dir-a2 .facts li {
-  display: grid; grid-template-columns: 4.6rem 1fr; gap: .6rem; align-items: baseline;
-  padding: .45rem 0; border-bottom: 1px dashed rgba(149, 178, 221, .4);
-}
-.dir-a2 .facts li::before {
-  content: attr(data-k); font-family: var(--mono); font-size: .75rem; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--mt-mint);
-}
+.dir-a2 .facts li { padding: .45rem 0; border-bottom: 1px dashed rgba(149, 178, 221, .4); }
 .dir-a2 .console .facts { margin: 0; }
 .dir-a2 .console .facts li:last-child { border-bottom: 0; }
 .dir-a2 .console .hours-line { margin: 0; padding: .45rem 0; border-bottom: 1px dashed rgba(149, 178, 221, .4); }
@@ -311,19 +274,13 @@ form .btn { margin-top: 1.1rem; width: 100%; }
   text-transform: uppercase; color: var(--mt-mid);
 }
 
-/* Mission list: the four services as numbered tiles. */
-.missions { counter-reset: mission; }
+/* The four services as tiles. */
 .missions .services > li {
-  counter-increment: mission; padding: 1rem; background: #fff;
+  padding: 1rem; background: #fff;
   border: 2px solid var(--mt-navy); border-radius: 6px; box-shadow: 6px 6px 0 var(--mt-mid);
 }
 .missions .services figure { margin-bottom: .9rem; }
 .missions h3 { font-family: var(--serif); font-size: 1.4rem; letter-spacing: -.01em; }
-.missions h3::before {
-  content: "Mission " counter(mission, decimal-leading-zero); display: block; margin-bottom: .35rem;
-  font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--mt-blue);
-}
 
 /* His mountain divider, then the family band in his blue. */
 .mountains { background: var(--mt-warm); line-height: 0; }

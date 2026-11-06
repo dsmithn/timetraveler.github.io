@@ -82,7 +82,6 @@ AREA_TEXTS = [
     "Family-owned AC repair in Delray Beach. {AREA_LINE}",
     "Family-owned AC repair, installation and maintenance in Delray Beach and all of Palm Beach County. {SERVICE_CALL} service call. Call {PHONE_DISPLAY}.",
     "Family-owned AC repair, installation and maintenance in Delray Beach and all of Palm Beach County. Call {PHONE_DISPLAY}.",
-    "AC maintenance plans in Palm Beach County: {PLAN_ANNUAL}, {PLAN_SEMI} or {PLAN_QUARTERLY} a year for one system, with a 14-point check on every visit. Call {PHONE_DISPLAY}.",
     # The owner's own About text from his original site (upstream 4bc8c6b), word for word. Its
     # "north Broward" is Deerfield Beach and Pompano Beach in AREA_LINE, so OTHER_PLACES allows it.
     "Major Tom's Air Repair is a family-owned HVAC contractor serving Palm Beach and north Broward counties. "
@@ -91,12 +90,10 @@ AREA_TEXTS = [
 # The only sentences outside a plan card that may carry a price or a discount. {KEY} is a fact value.
 LOOSE_TEMPLATES = [
     "{SERVICE_CALL} service call",
-    "{SERVICE_CALL}. That covers the visit",
     "The regular service call is {SERVICE_CALL}",
     "starting at {PLAN_ANNUAL} a year",
-    "Plans from {PLAN_ANNUAL} a Year",
-    "{PLAN_ANNUAL}, {PLAN_SEMI} or {PLAN_QUARTERLY} a year",
-    "members get {PLAN_ANNUAL_DISCOUNT} off, or {PLAN_QUARTERLY_DISCOUNT} on the quarterly plan",
+    # The owner's own words from his original site (upstream 4bc8c6b, index.html:791).
+    "Maintenance agreements from {PLAN_ANNUAL}/year",
 ]
 # Outside plan cards, any block of text that carries a price, a discount or a billing basis must be one
 # of these complete texts, so "per hour" after "$99 service call" or "per month for two systems" fails.
@@ -104,15 +101,12 @@ BASIS_RE = re.compile(r"\bprices are\b|\bper (?:year|month|week|day|visit|hour|t
                       r"\ban? (?:month|week|hour)\b", re.I)
 PRICED_TEXTS = [
     "Family-owned AC repair, installation and maintenance in Delray Beach and all of Palm Beach County. {SERVICE_CALL} service call. Call {PHONE_DISPLAY}.",
-    "{SERVICE_CALL} service call to diagnose (repairs quoted before work)",
+    "{SERVICE_CALL} service call to diagnose",
     "One, two or four visits a year, starting at {PLAN_ANNUAL} a year for one system.",
     "Prices are per year for one system. Every visit covers the same 14-point check.",
-    "{SERVICE_CALL}. That covers the visit and finding the problem. We tell you what the repair costs before we do it. "
-    "Maintenance plan members get {PLAN_ANNUAL_DISCOUNT} off, or {PLAN_QUARTERLY_DISCOUNT} on the quarterly plan.",
-    "AC Maintenance Plans from {PLAN_ANNUAL} a Year | Major Tom's Air Repair",
-    "AC maintenance plans in Palm Beach County: {PLAN_ANNUAL}, {PLAN_SEMI} or {PLAN_QUARTERLY} a year for one system, with a 14-point check on every visit. Call {PHONE_DISPLAY}.",
-    "Pick how often you want us out. Prices are per year and cover one system.",
-    "The regular service call is {SERVICE_CALL}. That covers the visit and finding the problem, and we quote any repair before we start it. "
+    "Maintenance agreements from {PLAN_ANNUAL}/year. Call {PHONE_DISPLAY}.",
+    "Prices are per year and cover one system.",
+    "The regular service call is {SERVICE_CALL}. That covers the visit and finding the problem. "
     "Plan discounts come off that price and off the repair.",
 ]
 # Tags that do not break a run of text, so "(561) 860-<strong>3671</strong>" is read as one number.
@@ -395,13 +389,13 @@ def check(facts: dict[str, str]) -> list[str]:
         if name in PLAN_PAGES and sorted(PLANS.get(b.split(' ')[0], '?') for _, b, _ in page.plans) != sorted(PLANS.values()):
             errors.append(f"{name}: expected one Annual, one Semi-annual and one Quarterly plan card")
 
-        for key in ("LICENSE", "HOURS_WEEKDAYS", "HOURS_SATURDAY", "HOURS_SUNDAY", "PHONE_DISPLAY"):
+        for key in ("LICENSE", "HOURS_WEEKDAYS", "HOURS_SATURDAY", "PHONE_DISPLAY"):
             if facts[key] not in visible:
                 errors.append(f"{name}: does not show {key} {facts[key]!r}")
         if founded not in visible:
             errors.append(f"{name}: does not show {founded!r}")
-        if name == "index.html" and visible.count(facts["AREA_LINE"]) < 2:
-            errors.append("index.html: AREA_LINE should appear in the hero and the FAQ")
+        if name == "index.html" and facts["AREA_LINE"] not in visible:
+            errors.append("index.html: AREA_LINE should appear in the hero")
 
         for line, attr, url in page.links:
             where = f"{name}:{line}"
@@ -464,7 +458,7 @@ def check(facts: dict[str, str]) -> list[str]:
         got = [{k: s.get(k) for k in ("dayOfWeek", "opens", "closes")} for s in ld.get("openingHoursSpecification", [])]
         if got != expected_hours(facts):
             errors.append(f"{name}: JSON-LD hours {got} != site-facts.md {expected_hours(facts)}")
-        want_offers = {"Service call": (facts["SERVICE_CALL"], "Visit to find the problem. Repairs are quoted before work starts.")}
+        want_offers = {"Service call": (facts["SERVICE_CALL"], "Visit to find the problem.")}
         for plan, label in (("ANNUAL", "Annual"), ("SEMI", "Semi-annual"), ("QUARTERLY", "Quarterly")):
             want_offers[f"{label} maintenance plan"] = (facts[f"PLAN_{plan}"], plan_offer_text(facts, plan))
         got_offers = {o.get("name"): ("$" + str(o.get("price")), o.get("description")) for o in ld.get("makesOffer", [])}
