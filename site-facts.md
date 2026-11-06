@@ -46,26 +46,26 @@ Line numbers are kept current by `check-facts.py --update-locations`. A fact can
 <!-- LOCATIONS:START -->
 | Fact | Where it appears (file:line) |
 |---|---|
-| PHONE_DISPLAY | index.html:7, index.html:16, index.html:37, index.html:76, index.html:101, index.html:144, index.html:153, index.html:172, index.html:249, index.html:266, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:158, maintenance.html:175, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
-| PHONE_TEL | index.html:76, index.html:101, index.html:144, index.html:153, index.html:172, index.html:249, index.html:266, maintenance.html:74, maintenance.html:118, maintenance.html:158, maintenance.html:175, register.html:74, register.html:93, register.html:102, register.html:119 |
-| EMAIL | index.html:38, index.html:241, index.html:249, maintenance.html:36, maintenance.html:158, register.html:36, register.html:93, register.html:102 |
-| LICENSE | index.html:54, index.html:112, index.html:251, maintenance.html:52, maintenance.html:160, register.html:52, register.html:104 |
-| HOURS_WEEKDAYS | index.html:51, index.html:105, index.html:250, maintenance.html:49, maintenance.html:159, register.html:49, register.html:103 |
-| HOURS_SATURDAY | index.html:52, index.html:106, index.html:250, maintenance.html:50, maintenance.html:159, register.html:50, register.html:103 |
-| SERVICE_CALL | index.html:7, index.html:60, index.html:109, maintenance.html:58, maintenance.html:117, register.html:58 |
+| PHONE_DISPLAY | index.html:7, index.html:16, index.html:37, index.html:76, index.html:101, index.html:144, index.html:153, index.html:172, index.html:250, index.html:267, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:119, maintenance.html:159, maintenance.html:176, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
+| PHONE_TEL | index.html:76, index.html:101, index.html:144, index.html:153, index.html:172, index.html:250, index.html:267, maintenance.html:74, maintenance.html:119, maintenance.html:159, maintenance.html:176, register.html:74, register.html:93, register.html:102, register.html:119 |
+| EMAIL | index.html:38, index.html:242, index.html:250, maintenance.html:36, maintenance.html:159, register.html:36, register.html:93, register.html:102 |
+| LICENSE | index.html:54, index.html:112, index.html:252, maintenance.html:52, maintenance.html:161, register.html:52, register.html:104 |
+| HOURS_WEEKDAYS | index.html:51, index.html:105, index.html:251, maintenance.html:49, maintenance.html:160, register.html:49, register.html:103 |
+| HOURS_SATURDAY | index.html:52, index.html:106, index.html:251, maintenance.html:50, maintenance.html:160, register.html:50, register.html:103 |
+| SERVICE_CALL | index.html:7, index.html:60, index.html:109, maintenance.html:58, maintenance.html:118, register.html:58 |
 | PLAN_ANNUAL | index.html:61, index.html:162, index.html:204, maintenance.html:7, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
 | PLAN_ANNUAL_EXTRA_SYSTEM | index.html:61, index.html:205, maintenance.html:59, maintenance.html:91, register.html:59 |
-| PLAN_ANNUAL_DISCOUNT | index.html:61, index.html:62, index.html:205, index.html:210, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_SEMI | index.html:62, index.html:209, maintenance.html:60, maintenance.html:98, register.html:60 |
-| PLAN_SEMI_EXTRA_SYSTEM | index.html:62, index.html:210, maintenance.html:60, maintenance.html:101, register.html:60 |
-| PLAN_SEMI_DISCOUNT | index.html:61, index.html:62, index.html:205, index.html:210, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_QUARTERLY | index.html:63, index.html:214, maintenance.html:61, maintenance.html:108, register.html:61 |
-| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:63, index.html:215, maintenance.html:61, maintenance.html:111, register.html:61 |
-| PLAN_QUARTERLY_DISCOUNT | index.html:63, index.html:215, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
+| PLAN_ANNUAL_DISCOUNT | index.html:61, index.html:62, index.html:205, index.html:211, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:103, maintenance.html:104, register.html:59, register.html:60 |
+| PLAN_SEMI | index.html:62, index.html:210, maintenance.html:60, maintenance.html:99, register.html:60 |
+| PLAN_SEMI_EXTRA_SYSTEM | index.html:62, index.html:211, maintenance.html:60, maintenance.html:102, register.html:60 |
+| PLAN_SEMI_DISCOUNT | index.html:61, index.html:62, index.html:205, index.html:211, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:103, maintenance.html:104, register.html:59, register.html:60 |
+| PLAN_QUARTERLY | index.html:63, index.html:215, maintenance.html:61, maintenance.html:109, register.html:61 |
+| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:63, index.html:216, maintenance.html:61, maintenance.html:112, register.html:61 |
+| PLAN_QUARTERLY_DISCOUNT | index.html:63, index.html:216, maintenance.html:61, maintenance.html:113, maintenance.html:114, register.html:61 |
 | AREA_LINE | index.html:100 |
 | AREA_JSONLD | index.html:46, index.html:47, index.html:48, maintenance.html:44, maintenance.html:45, maintenance.html:46, register.html:44, register.html:45, register.html:46 |
-| INCORPORATED | index.html:33, index.html:251, maintenance.html:31, maintenance.html:160, register.html:31, register.html:104 |
-| LICENSED_SINCE | index.html:251, maintenance.html:160, register.html:104 |
+| INCORPORATED | index.html:33, index.html:252, maintenance.html:31, maintenance.html:161, register.html:31, register.html:104 |
+| LICENSED_SINCE | index.html:252, maintenance.html:161, register.html:104 |
 <!-- LOCATIONS:END -->
 
 ## How to change your hours (5 steps)
@@ -146,6 +146,7 @@ Prose lines that make a claim, with where each came from. Line numbers refer to 
 | "You'll need the serial number and model number from your install invoice." (register page) | His own register.html: "You'll need your serial number and model number from your install invoice." |
 | "We work on offices and other businesses, not just homes." | :815 "Residential and commercial."; his "Residential + Commercial" badge |
 | "Major Tom's Air Repair is a family-owned HVAC contractor serving Palm Beach and north Broward counties. Our philosophy is simple: call back, show up, and honest about what it costs." (About section) | His original site, word for word (upstream commit 4bc8c6b, index.html:814), grammar left as he wrote it. Put back on 2026-11-05 on the owner's decision ("use Devin's own line"). It replaces the sentence "Our dad, Tom, started Major Tom's. We work alongside him.", which was our wording and never his, removed on the same decision, and the separate tidied philosophy line ("be" added). Open question 9 is resolved for the family sentence by removal; the Nextdoor quote part of question 9 is still open. |
+| "Most Popular" (the badge on the Semi-annual plan, home page and maintenance page) | His original site, word for word (upstream commit 4bc8c6b, index.html:859, `<div class="plan-badge">Most Popular</div>` on his Semi-Annual card, which also has his `featured` class). Put back on 2026-11-06 on the owner's request ("add the \"most popular\" back to match devin's old site"). |
 | "Bumble" (Bumble alt), "Major Tom's Air Repair van" (share-image alt on all three pages), "Major Tom's Air Repair van with the phone number on the side" (home-page van photo) | Plain descriptions, no voice (2026-11-06). "Bumble" is his own alt text (:661). Replaced "Bumble, our mascot, waving", "Our van" and "Our van, with the phone number on the side". |
 | "Registering ensures your full manufacturer's warranty is on file. Call (561) 860-3670." (register page search and share description) | His register.html sentence, word for word, and the end of his home-page description (:7, "Call (561) 860-3670."). Replaced our "Register the manufacturer's warranty on a new Tempstar or Rheem system we installed. Help: (561) 860-3670." on 2026-11-06. |
 | "Maintenance agreements from $149/year. Call (561) 860-3670." (maintenance page search and share description) and the title "Maintenance Plans \| Major Tom's Air Repair" | His :791 "Maintenance agreements from $149/year." and :7 "Call (561) 860-3670.", word for word; the title is his heading :841 with the business name as on the other pages. Replaced our "AC Maintenance Plans from $149 a Year" title and "AC maintenance plans in Palm Beach County: …, with a 14-point check on every visit." description on 2026-11-06. |

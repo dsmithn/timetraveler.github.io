@@ -138,6 +138,11 @@ blockquote footer, .source { color: var(--muted); font-size: .95rem; }
 .plan h3 { margin-bottom: .1em; }
 .plan .price { font-size: 1.6rem; font-weight: 700; margin: .2em 0; color: var(--blue); }
 .plan ul { padding-left: 1.2rem; margin: .5em 0 0; }
+.plan.featured { border: 2px solid var(--blue); }
+.plan-badge {
+  display: inline-block; margin: 0 0 .5em; padding: .2em .65em; border-radius: 999px;
+  background: var(--blue); color: #fff; font-size: .8rem; font-weight: 700; line-height: 1.3;
+}
 
 .checklist { columns: 1; padding-left: 1.2rem; }
 
@@ -295,6 +300,8 @@ blockquote footer, .source { color: var(--muted); font-size: .95rem; }
 
 .dir-a2 .plan { background: #fff; border-color: #dde8f4; }
 .dir-a2 .plan .price { font-family: var(--serif); color: var(--mt-navy); }
+.dir-a2 .plan.featured { border-color: var(--mt-navy); }
+.dir-a2 .plan-badge { background: var(--mt-navy); }
 .dir-a2 .btn-outline { border-radius: 999px; }
 .dir-a2 .band:not(.family) { background: #eef3fa; }
 
