@@ -45,27 +45,27 @@ Line numbers are kept current by `check-facts.py --update-locations`. A fact can
 <!-- LOCATIONS:START -->
 | Fact | Where it appears (file:line) |
 |---|---|
-| PHONE_DISPLAY | index.html:7, index.html:16, index.html:37, index.html:76, index.html:103, index.html:145, index.html:154, index.html:173, index.html:245, index.html:279, index.html:296, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
-| PHONE_TEL | index.html:76, index.html:103, index.html:145, index.html:154, index.html:173, index.html:279, index.html:296, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
-| EMAIL | index.html:38, index.html:259, index.html:260, index.html:269, index.html:279, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
-| LICENSE | index.html:54, index.html:112, index.html:281, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
-| HOURS_WEEKDAYS | index.html:51, index.html:107, index.html:280, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
-| HOURS_SATURDAY | index.html:52, index.html:107, index.html:280, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
-| HOURS_SUNDAY | index.html:107, index.html:280, maintenance.html:153, maintenance.html:163, register.html:103 |
-| SERVICE_CALL | index.html:7, index.html:60, index.html:109, index.html:243, maintenance.html:58, maintenance.html:117, register.html:58 |
-| PLAN_ANNUAL | index.html:61, index.html:163, index.html:206, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
-| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:61, index.html:207, maintenance.html:59, maintenance.html:91, register.html:59 |
-| PLAN_ANNUAL_DISCOUNT | index.html:61, index.html:62, index.html:207, index.html:212, index.html:243, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_SEMI | index.html:62, index.html:211, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
-| PLAN_SEMI_EXTRA_SYSTEM | index.html:62, index.html:212, maintenance.html:60, maintenance.html:101, register.html:60 |
-| PLAN_SEMI_DISCOUNT | index.html:61, index.html:62, index.html:207, index.html:212, index.html:243, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
-| PLAN_QUARTERLY | index.html:63, index.html:216, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
-| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:63, index.html:217, maintenance.html:61, maintenance.html:111, register.html:61 |
-| PLAN_QUARTERLY_DISCOUNT | index.html:63, index.html:217, index.html:243, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
-| AREA_LINE | index.html:102, index.html:247 |
+| PHONE_DISPLAY | index.html:7, index.html:16, index.html:37, index.html:76, index.html:103, index.html:148, index.html:157, index.html:176, index.html:248, index.html:282, index.html:299, maintenance.html:7, maintenance.html:16, maintenance.html:35, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:7, register.html:16, register.html:35, register.html:74, register.html:93, register.html:102, register.html:119 |
+| PHONE_TEL | index.html:76, index.html:103, index.html:148, index.html:157, index.html:176, index.html:282, index.html:299, maintenance.html:74, maintenance.html:118, maintenance.html:153, maintenance.html:162, maintenance.html:179, register.html:74, register.html:93, register.html:102, register.html:119 |
+| EMAIL | index.html:38, index.html:262, index.html:263, index.html:272, index.html:282, maintenance.html:36, maintenance.html:162, register.html:36, register.html:93, register.html:102 |
+| LICENSE | index.html:54, index.html:115, index.html:284, maintenance.html:52, maintenance.html:164, register.html:52, register.html:104 |
+| HOURS_WEEKDAYS | index.html:51, index.html:108, index.html:283, maintenance.html:49, maintenance.html:153, maintenance.html:163, register.html:49, register.html:103 |
+| HOURS_SATURDAY | index.html:52, index.html:109, index.html:283, maintenance.html:50, maintenance.html:153, maintenance.html:163, register.html:50, register.html:103 |
+| HOURS_SUNDAY | index.html:283, maintenance.html:153, maintenance.html:163, register.html:103 |
+| SERVICE_CALL | index.html:7, index.html:60, index.html:112, index.html:246, maintenance.html:58, maintenance.html:117, register.html:58 |
+| PLAN_ANNUAL | index.html:61, index.html:166, index.html:209, maintenance.html:6, maintenance.html:7, maintenance.html:15, maintenance.html:16, maintenance.html:59, maintenance.html:88, register.html:59 |
+| PLAN_ANNUAL_EXTRA_SYSTEM | index.html:61, index.html:210, maintenance.html:59, maintenance.html:91, register.html:59 |
+| PLAN_ANNUAL_DISCOUNT | index.html:61, index.html:62, index.html:210, index.html:215, index.html:246, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_SEMI | index.html:62, index.html:214, maintenance.html:7, maintenance.html:16, maintenance.html:60, maintenance.html:98, register.html:60 |
+| PLAN_SEMI_EXTRA_SYSTEM | index.html:62, index.html:215, maintenance.html:60, maintenance.html:101, register.html:60 |
+| PLAN_SEMI_DISCOUNT | index.html:61, index.html:62, index.html:210, index.html:215, index.html:246, maintenance.html:59, maintenance.html:60, maintenance.html:92, maintenance.html:93, maintenance.html:102, maintenance.html:103, register.html:59, register.html:60 |
+| PLAN_QUARTERLY | index.html:63, index.html:219, maintenance.html:7, maintenance.html:16, maintenance.html:61, maintenance.html:108, register.html:61 |
+| PLAN_QUARTERLY_EXTRA_SYSTEM | index.html:63, index.html:220, maintenance.html:61, maintenance.html:111, register.html:61 |
+| PLAN_QUARTERLY_DISCOUNT | index.html:63, index.html:220, index.html:246, maintenance.html:61, maintenance.html:112, maintenance.html:113, register.html:61 |
+| AREA_LINE | index.html:102, index.html:250 |
 | AREA_JSONLD | index.html:46, index.html:47, index.html:48, maintenance.html:44, maintenance.html:45, maintenance.html:46, register.html:44, register.html:45, register.html:46 |
-| INCORPORATED | index.html:33, index.html:281, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
-| LICENSED_SINCE | index.html:281, maintenance.html:164, register.html:104 |
+| INCORPORATED | index.html:33, index.html:284, maintenance.html:31, maintenance.html:164, register.html:31, register.html:104 |
+| LICENSED_SINCE | index.html:284, maintenance.html:164, register.html:104 |
 <!-- LOCATIONS:END -->
 
 ## How to change your hours (5 steps)
@@ -80,9 +80,7 @@ Example: Saturday hours change from 9 AM – 12 PM to 9 AM – 1 PM. These steps
 
 Screenshots of these screens are still to be added; they need Devin's own GitHub login to capture.
 
-The home page works out "Office hours today" or "Office closed until ..." by itself from the 24-hour block, in Delray Beach time. You don't edit that sentence.
-
-**Closed for a holiday?** In `index.html`, search for `data-holiday-notice=""` and type your notice between the quotes, for example `data-holiday-notice="Closed today for Thanksgiving. Leave a voicemail."`. Put the first day the notice should show in `data-holiday-from` and the last day in `data-holiday-until`, for example `data-holiday-from="2026-11-26" data-holiday-until="2026-11-26"`. You can set it days ahead: before the first day and after the last day the normal hours line shows by itself, even if nobody empties the quotes. Both dates are required; the check fails on a notice without them.
+The home page's "Office Hours" box under the Call button is Devin's own text from his original site, word for word: "Mon – Fri: 8 AM – 4:30 PM" and "Saturday: 9 AM – 12 PM · Messages answered within 24 hours". When the hours change, change those times too (the search in step 3 finds them). The page no longer works out an "open now" or "closed until" line by itself, and there is no holiday notice.
 
 ## Texting (`SMS_ENABLED`)
 
@@ -90,7 +88,6 @@ The home page works out "Office hours today" or "Office closed until ..." by its
 
 - set `SMS_ENABLED: true` above;
 - add `<a class="btn btn-outline" href="sms:+15618603670">Text us</a>` under the Call button in the home page hero, and the same link beside the Call button in the sticky bar at the bottom of the home page;
-- change `data-closed-suffix="Leave a voicemail."` to `data-closed-suffix="Leave a voicemail or text us."`;
 - add a FAQ answer: "Can I text you? Yes, text (561) 860-3670."
 
 `check-facts.py` fails on any texting mention or `sms:` link while the flag is `false`, and on any `sms:` link to a different number once it is `true`.
@@ -134,6 +131,7 @@ Prose lines that make a claim, with where each came from. Line numbers refer to 
 
 | Line on the new pages | Source |
 |---|---|
+| "Office Hours", "Mon – Fri: 8 AM – 4:30 PM", "Saturday: 9 AM – 12 PM · Messages answered within 24 hours" (home page, under the Call button) | His original site, word for word (upstream commit 4bc8c6b, index.html:949-951, the contact block). Put back on 2026-11-06 on the owner's decision; it replaces the line the page used to work out by itself ("Office hours today …" / "Office closed until … Leave a voicemail."), which was our wording, removed with its holiday notice. |
 | "2-hour arrival windows" | His trust pill "2-Hour Arrival Windows" (:708); Linda's review (:914) describes one |
 | "No call centers. No commissions. Family-owned." and the "No commissions" fact | His line :779 "No call centers. No commissions. Family-owned. Licensed, insured, and straight with you about what it'll actually cost." and :815 "Residential and commercial. No commissions. No surprises on the invoice." |
 | "Family owned and operated" / "Family-owned" | Printed on his van (the photo on every page) and in his line :779 |
