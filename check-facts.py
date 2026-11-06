@@ -280,6 +280,9 @@ CARD_SEASONS = {
     "index.html": {"ANNUAL": " (fall or spring)", "SEMI": " (fall and spring)", "QUARTERLY": ""},
     "maintenance.html": {"ANNUAL": ", in the fall or spring", "SEMI": ", fall and spring", "QUARTERLY": ""},
 }
+# His badge, word for word (upstream 4bc8c6b index.html:859), only on the Semi-annual card. It sits
+# first in the card and is not part of CARD_TEMPLATES.
+PLAN_BADGE = "Most Popular"
 CARD_TEMPLATES = {
     "index.html": "{name} {price} a year {visits} a year{season}. Each extra system {extra}. {off} off service calls and repairs.",
     "maintenance.html": "{name} {price} a year {visits} a year{season} Each extra system: {extra} {off} off service calls {off} off repairs",
@@ -369,10 +372,14 @@ def check(facts: dict[str, str]) -> list[str]:
 
         for line, block, nodes in page.plans:
             where = f"{name}:{line}"
+            badge = block.startswith(PLAN_BADGE + " ")
+            block = block.removeprefix(PLAN_BADGE + " ")
             plan = PLANS.get(block.split(" ")[0])
             if not plan:
                 errors.append(f"{where}: plan card {block[:30]!r} is not Annual, Semi-annual or Quarterly")
                 continue
+            if badge and plan != "SEMI":
+                errors.append(f"{where}: the {PLAN_BADGE!r} badge belongs on the Semi-annual card only, as on his site")
             want_money = {facts[f"PLAN_{plan}"], facts[f"PLAN_{plan}_EXTRA_SYSTEM"]}
             if set(PRICE_RE.findall(block)) != want_money or f"{facts[f'PLAN_{plan}']} a year" not in block:
                 errors.append(f"{where}: {plan.lower()} card prices {PRICE_RE.findall(block)} != {sorted(want_money)}")
@@ -386,7 +393,7 @@ def check(facts: dict[str, str]) -> list[str]:
                     errors.append(f"{where}: {plan.lower()} card clause {clause!r} is not one of {sorted(terms)}")
             if set(VISITS_RE.findall(block)) != {(facts[f"PLAN_{plan}_VISITS"], "year")} or re.search(r"month|week|quarter\b", block, re.I):
                 errors.append(f"{where}: {plan.lower()} card visits {VISITS_RE.findall(block)} != {facts[f'PLAN_{plan}_VISITS']} a year")
-        if name in PLAN_PAGES and sorted(PLANS.get(b.split(' ')[0], '?') for _, b, _ in page.plans) != sorted(PLANS.values()):
+        if name in PLAN_PAGES and sorted(PLANS.get(b.removeprefix(PLAN_BADGE + ' ').split(' ')[0], '?') for _, b, _ in page.plans) != sorted(PLANS.values()):
             errors.append(f"{name}: expected one Annual, one Semi-annual and one Quarterly plan card")
 
         for key in ("LICENSE", "HOURS_WEEKDAYS", "HOURS_SATURDAY", "PHONE_DISPLAY"):
