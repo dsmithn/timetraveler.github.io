@@ -10,8 +10,7 @@ founding year or service-area value (visible text or JSON-LD) that differs from
 site-facts.md or is attached to the wrong plan or day; any BBB mention or bbb.org link
 (the business is not accredited); an age claim like "12+ years"; JSON-LD that differs
 between pages; a plan card whose full text is not the approved card (CARD_TEMPLATES;
-change its season wording there); price, discount or billing-basis text outside a plan card that is not one of PRICED_TEXTS; a holiday
-notice without both dates; a sample photo (assets/placeholders/) without its visible "Sample photo,
+change its season wording there); price, discount or billing-basis text outside a plan card that is not one of PRICED_TEXTS; a sample photo (assets/placeholders/) without its visible "Sample photo,
 replace with yours" tag or its row under "Photos Devin needs to provide", or a row with no sample on
 any page; any texting mention while SMS_ENABLED is false; an internal link
 or asset that doesn't exist; a root-absolute or trailing-slash internal URL; a
@@ -65,7 +64,7 @@ TIME = r"\d{1,2}(?::\d\d)?\s?(?:[AaPp][Mm]|[AaPp]\.[Mm]\.)"
 RANGE_RE = re.compile(rf"({TIME})\s*(?:[–—-]|to)\s*({TIME})")
 TEXTING_RE = re.compile(r"\b(sms|texts?|texting|texted)\b", re.I)
 YEAR_RE = re.compile(r"\b(?:19|20)\d{2}\b")
-# A year is checked only in text that talks about the business's age, so a holiday notice or a copyright line passes.
+# A year is checked only in text that talks about the business's age, so a copyright line passes.
 FOUNDING_WORDS = re.compile(r"\b(?:since|incorporated|founded|established|est\.|started|opened|serving|in business)(?=\W)", re.I)
 # "12+ years", "over 10 years", "10 years in business", "a decade": the founding line is the only tenure claim.
 AGE_CLAIM_RE = re.compile(r"\b\d+\s?\+\s?years?\b|\b(?:over|more than|nearly|almost|about)\s+\d+\s+years?\b|"
@@ -118,7 +117,6 @@ PRICED_TEXTS = [
 ]
 # Tags that do not break a run of text, so "(561) 860-<strong>3671</strong>" is read as one number.
 INLINE = {"a", "abbr", "b", "code", "em", "i", "mark", "s", "small", "span", "strong", "sub", "sup", "time", "u"}
-DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
 
 
 class Page(HTMLParser):
@@ -129,7 +127,6 @@ class Page(HTMLParser):
         self.text: list[tuple[int, str, bool]] = []
         self.runs: list[tuple[int, str, bool]] = []  # visible text joined across inline tags
         self.attrs: list[tuple[int, str]] = []
-        self.holiday: dict[str, str] = {}
         self.plans: list[tuple[int, str, list[str]]] = []
         self.links: list[tuple[int, str, str]] = []
         self.ids: set[str] = set()
@@ -157,8 +154,6 @@ class Page(HTMLParser):
         line = self.getpos()[0]
         if tag not in INLINE:
             self._flush()
-        if "data-holiday-notice" in a:
-            self.holiday = {k: a.get(f"data-holiday-{k}", "") for k in ("notice", "from", "until")} | {"line": str(line)}
         if "id" in a:
             self.ids.add(a["id"])
         if tag == "li" and self._plan_depth:
@@ -194,7 +189,7 @@ class Page(HTMLParser):
             for part in a.get(attr, "").split(","):
                 if part.strip():
                     self.links.append((line, attr, part.split()[0]))
-        for attr in ("aria-label", "alt", "title", "placeholder", "data-holiday-notice", "data-closed-suffix", "content"):
+        for attr in ("aria-label", "alt", "title", "placeholder", "content"):
             if a.get(attr):
                 self.text.append((line, a[attr], False))
                 self.attrs.append((line, a[attr]))
@@ -266,6 +261,12 @@ def expected_hours(facts: dict[str, str]) -> list[dict[str, object]]:
     return out
 
 
+def owner_hours(facts: dict[str, str]) -> list[str]:
+    """The hours as the owner's own site words them ("Mon – Fri: 8 AM – 4:30 PM", "Saturday: 9 AM – 12 PM"), same times as site-facts.md."""
+    return [f"Mon – Fri: {RANGE_RE.search(facts['HOURS_WEEKDAYS']).group(0)}",
+            f"Saturday: {RANGE_RE.search(facts['HOURS_SATURDAY']).group(0)}"]
+
+
 def plan_offer_text(facts: dict[str, str], plan: str) -> str:
     visits = facts[f"PLAN_{plan}_VISITS"]
     return (f"Per year, one system: {visits} visit{'' if visits == '1' else 's'} a year. "
@@ -311,7 +312,7 @@ def check(facts: dict[str, str]) -> list[str]:
     jsonld_tel = f"+1-{tel[2:5]}-{tel[5:8]}-{tel[8:]}"
     area = [a.strip() for a in facts["AREA_JSONLD"].split(";")]
     loose = [t.format(**facts) for t in LOOSE_TEMPLATES]
-    hours = [facts["HOURS_WEEKDAYS"], facts["HOURS_SATURDAY"]]
+    hours = [facts["HOURS_WEEKDAYS"], facts["HOURS_SATURDAY"]] + owner_hours(facts)
     founded = f"Incorporated {facts['INCORPORATED']}, licensed for installs and full-service work since {facts['LICENSED_SINCE']}"
     area_texts = {t.format(**facts) for t in AREA_TEXTS}
     priced_texts = {t.format(**facts) for t in PRICED_TEXTS}
@@ -371,12 +372,6 @@ def check(facts: dict[str, str]) -> list[str]:
             t = " ".join(t.split())
             if (PRICE_RE.search(t) or PERCENT_RE.search(t) or BASIS_RE.search(t)) and t not in priced_texts:
                 errors.append(f"{name}:{line}: price, discount or billing text is not one of the known texts (PRICED_TEXTS): {t[:80]!r}")
-
-        if page.holiday.get("notice"):
-            h, where = page.holiday, f"{name}:{page.holiday['line']}"
-            if not (DATE_RE.fullmatch(h["from"]) and DATE_RE.fullmatch(h["until"]) and h["from"] <= h["until"]):
-                errors.append(f"{where}: a holiday notice needs data-holiday-from and data-holiday-until (YYYY-MM-DD, from <= until), "
-                              f"got from={h['from']!r} until={h['until']!r}")
 
         for line, block, nodes in page.plans:
             where = f"{name}:{line}"

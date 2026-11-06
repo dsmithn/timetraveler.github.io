@@ -103,8 +103,11 @@
         <a class="btn" href="tel:+15618603670">Call (561) 860-3670</a>
         <div class="console">
           <p class="console-title" aria-hidden="true">Mission readout</p>
-          <!-- HOLIDAY_NOTICE: to show a notice for a day off, type it between the quotes of data-holiday-notice below, for example data-holiday-notice="Closed today for Thanksgiving. Leave a voicemail.", put the first day it should show in data-holiday-from and the last day in data-holiday-until, for example data-holiday-from="2026-11-26" data-holiday-until="2026-11-26". -->
-          <p class="hours-line" id="hours-line" data-holiday-notice="" data-holiday-from="" data-holiday-until="" data-closed-suffix="Leave a voicemail.">Office hours: Monday to Friday 8 AM – 4:30 PM, Saturday 9 AM – 12 PM. Closed Sunday.</p>
+          <div class="hours-line">
+            <p class="hours-label">Office Hours</p>
+            <p>Mon – Fri: 8 AM – 4:30 PM</p>
+            <p>Saturday: 9 AM – 12 PM · Messages answered within 24 hours</p>
+          </div>
           <ul class="facts">
             <li data-k="Fee">$99 service call to diagnose (repairs quoted before work)</li>
             <li data-k="Window">2-hour arrival windows</li>
@@ -297,55 +300,6 @@
 </div>
 
 <script>
-// Office-hours line, in Delray Beach time. The hours come from the JSON-LD block at the top of this page.
-(function () {
-  var el = document.getElementById('hours-line');
-  var names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  var week = {};
-  JSON.parse(document.querySelector('script[type="application/ld+json"]').textContent)
-    .openingHoursSpecification.forEach(function (s) {
-      [].concat(s.dayOfWeek).forEach(function (d) { week[names.indexOf(d)] = [s.opens, s.closes]; });
-    });
-  function mins(t) { var p = t.split(':'); return p[0] * 60 + +p[1]; }
-  function show(t) {
-    var h = +t.split(':')[0], m = t.split(':')[1];
-    return (h % 12 || 12) + (m === '00' ? '' : ':' + m) + (h < 12 ? ' AM' : ' PM');
-  }
-  function line() {
-    var parts = {};
-    new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', year: 'numeric', month: '2-digit', day: '2-digit',
-      weekday: 'long', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' })
-      .formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
-    var notice = el.getAttribute('data-holiday-notice');
-    var from = el.getAttribute('data-holiday-from');
-    var until = el.getAttribute('data-holiday-until');
-    var date = parts.year + '-' + parts.month + '-' + parts.day;
-    if (notice && (!from || date >= from) && (!until || date <= until)) return notice;
-    var day = names.indexOf(parts.weekday), now = (+parts.hour % 24) * 60 + +parts.minute;
-    var today = week[day];
-    if (today && now >= mins(today[0]) && now < mins(today[1])) {
-      return 'Office hours today: ' + show(today[0]) + ' – ' + show(today[1]) + '.';
-    }
-    var when;
-    if (today && now < mins(today[0])) {
-      when = show(today[0]) + ' today';
-    } else {
-      for (var k = 1; k <= 7; k++) {
-        var d = (day + k) % 7;
-        if (!week[d]) continue;
-        when = (k === 1 && d !== 1) ? show(week[d][0]) + ' tomorrow' : names[d] + ' ' + show(week[d][0]);
-        break;
-      }
-    }
-    return 'Office closed until ' + when + '. ' + el.getAttribute('data-closed-suffix');
-  }
-  function update() { el.textContent = line(); }
-  update();
-  setInterval(update, 60000);
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) update(); });
-  window.addEventListener('pageshow', update);
-})();
-
 // The form only builds an email draft; nothing is sent from this site.
 (function () {
   var form = document.getElementById('contact-form');
